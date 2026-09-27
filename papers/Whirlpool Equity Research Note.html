@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Whirlpool Equity Research Note</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap');
+    :root {
+      color-scheme: light dark;
+      --paper:#f3f2ee; --ink:#17242a; --muted:#5d696d; --line:#c8cfcd;
+      --panel:#ffffff; --soft:#e7ebe8; --navy:#173c48; --teal:#0e746f;
+      --teal-soft:#d8ece8; --red:#b34032; --red-soft:#f3dfda; --amber:#a86d14;
+      --shadow:0 18px 40px rgba(23,36,42,.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper:#0f171a; --ink:#edf1ed; --muted:#aab5b5; --line:#344247;
+        --panel:#172226; --soft:#202e32; --navy:#a8d2d4; --teal:#68c9be;
+        --teal-soft:#173d3b; --red:#f08f7f; --red-soft:#472923; --amber:#e9b55f;
+        --shadow:0 18px 40px rgba(0,0,0,.22);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.55}
+    a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}
+    button{font:inherit}
+    .shell{width:min(1180px,calc(100% - 36px));margin:0 auto;padding:34px 0 72px}
+    .mast{border-top:7px solid var(--navy);padding-top:26px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.55fr);gap:42px;align-items:end}
+    .kicker,.label,.eyebrow{font-family:"IBM Plex Sans Condensed",sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.74rem;font-weight:700;color:var(--teal)}
+    h1,h2,h3,.metric-value,.rating{font-family:"IBM Plex Sans Condensed",sans-serif;margin:0;line-height:1.02}
+    h1{font-size:clamp(2.65rem,7vw,5.9rem);max-width:850px;letter-spacing:-.045em;font-weight:600}
+    h1 em{font-family:"Source Serif 4",serif;font-weight:400;color:var(--teal)}
+    .dek{font-size:1.18rem;line-height:1.45;max-width:760px;margin:22px 0 0;color:var(--muted)}
+    .datebox{border-left:1px solid var(--line);padding-left:24px;font-family:"IBM Plex Sans Condensed",sans-serif;color:var(--muted);font-size:.88rem}
+    .datebox strong{display:block;color:var(--ink);font-size:1.03rem;margin-bottom:4px}
+    .ticker-strip{margin-top:32px;background:var(--navy);color:#fff;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:var(--shadow)}
+    @media (prefers-color-scheme: dark){.ticker-strip{color:#0f171a}}
+    .ticker-item{padding:19px 22px;border-right:1px solid rgba(255,255,255,.25)}
+    .ticker-item:last-child{border-right:0}
+    .ticker-item span{font-family:"IBM Plex Sans Condensed",sans-serif;display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.11em;opacity:.78}
+    .ticker-item strong{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:1.55rem;line-height:1.2}
+    .ticker-item small{display:block;font-size:.74rem;opacity:.75}
+    .nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 94%,transparent);border-bottom:1px solid var(--line);margin:0 calc((100vw - min(1180px,calc(100vw - 36px)))/-2);padding:0 calc((100vw - min(1180px,calc(100vw - 36px)))/2);backdrop-filter:blur(9px)}
+    .nav-inner{display:flex;gap:5px;flex-wrap:wrap;padding:10px 0}
+    .nav a{font-family:"IBM Plex Sans Condensed",sans-serif;color:var(--muted);text-decoration:none;white-space:nowrap;padding:6px 10px;border-radius:2px;font-size:.82rem;font-weight:600}
+    .nav a:hover,.nav a:focus{background:var(--soft);color:var(--ink)}
+    section{scroll-margin-top:74px;padding:64px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:140px 1fr;gap:24px;margin-bottom:30px;align-items:start}
+    .section-no{font-family:"IBM Plex Sans Condensed",sans-serif;color:var(--teal);font-size:.92rem;font-weight:700}
+    h2{font-size:clamp(2rem,4vw,3.25rem);letter-spacing:-.025em;font-weight:600}
+    h3{font-size:1.35rem;font-weight:600;letter-spacing:-.01em}
+    .lead{font-size:1.12rem;color:var(--muted);max-width:780px;margin:12px 0 0}
+    .grid-2{display:grid;grid-template-columns:1.08fr .92fr;gap:24px;align-items:start}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+    .panel{background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);padding:26px}
+    .thesis-panel{border-top:5px solid var(--teal)}
+    .rating{font-size:2.6rem;color:var(--teal);letter-spacing:-.03em}
+    .risk-pill{display:inline-block;font-family:"IBM Plex Sans Condensed",sans-serif;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;background:var(--red-soft);color:var(--red);padding:5px 9px;margin-left:9px;vertical-align:middle}
+    .verdict-copy{font-size:1.08rem;margin:18px 0 0}
+    .keyline{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .mini-stat strong{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:1.65rem;display:block}
+    .mini-stat span{color:var(--muted);font-size:.86rem}
+    .bullets{list-style:none;margin:18px 0 0;padding:0}
+    .bullets li{position:relative;padding:10px 0 10px 22px;border-top:1px solid var(--line)}
+    .bullets li:before{content:"";position:absolute;width:7px;height:7px;border-radius:50%;left:0;top:20px;background:var(--teal)}
+    .bullets.risk li:before{background:var(--red)}
+    .chart-wrap{margin-top:18px}
+    .chart-meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:10px;font-family:"IBM Plex Sans Condensed",sans-serif}
+    .chart-meta strong{font-size:1.18rem}
+    .chart-meta span{font-size:.77rem;color:var(--muted)}
+    #priceChart{width:100%;height:auto;display:block;overflow:visible}
+    .chart-note{margin:10px 0 0;color:var(--muted);font-size:.79rem}
+    .segment{margin:18px 0}
+    .segment-top{display:flex;justify-content:space-between;gap:16px;font-family:"IBM Plex Sans Condensed",sans-serif;font-size:.92rem}
+    .segment-top strong{font-size:1.05rem}
+    .bar{height:9px;background:var(--soft);margin-top:7px;overflow:hidden}
+    .bar i{display:block;height:100%;background:var(--teal)}
+    .segment small{color:var(--muted)}
+    .note-box{background:var(--soft);padding:18px 20px;margin-top:22px;font-size:.9rem;border-left:4px solid var(--amber)}
+    .metric-row{display:grid;grid-template-columns:1.25fr repeat(3,.65fr);gap:8px;padding:12px 0;border-top:1px solid var(--line);align-items:baseline}
+    .metric-row.header{font-family:"IBM Plex Sans Condensed",sans-serif;color:var(--muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.08em;border-top:0}
+    .metric-row span:not(:first-child){text-align:right;font-variant-numeric:tabular-nums;font-family:"IBM Plex Sans Condensed",sans-serif}
+    .neg{color:var(--red)} .pos{color:var(--teal)}
+    .spark{display:flex;align-items:end;gap:11px;height:170px;padding-top:24px;border-bottom:1px solid var(--line)}
+    .spark-col{height:100%;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px}
+    .spark-col b{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:.83rem}
+    .spark-bar{width:62%;background:var(--teal);min-height:3px}
+    .spark-bar.bad{background:var(--red)}
+    .spark-col span{font-family:"IBM Plex Sans Condensed",sans-serif;color:var(--muted);font-size:.75rem}
+    .capital-stack{display:grid;gap:10px;margin-top:18px}
+    .capital-row{display:grid;grid-template-columns:110px 1fr 76px;gap:12px;align-items:center;font-family:"IBM Plex Sans Condensed",sans-serif}
+    .capital-track{height:18px;background:var(--soft)}
+    .capital-track i{display:block;height:100%;background:var(--red)}
+    .capital-row.equity i{background:var(--teal)}
+    .capital-row b{text-align:right}
+    .callout{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:1.35rem;line-height:1.35;padding:26px;border:1px solid var(--line);background:var(--soft)}
+    .matrix{margin-top:8px}
+    .matrix-row{display:grid;grid-template-columns:1.1fr .8fr 2fr;gap:18px;padding:15px 0;border-top:1px solid var(--line);align-items:start}
+    .matrix-row:first-child{border-top:0}
+    .matrix-row strong{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:1.04rem}
+    .matrix-row .grade{font-family:"IBM Plex Sans Condensed",sans-serif;color:var(--teal);font-weight:700}
+    .matrix-row p{margin:0;color:var(--muted);font-size:.92rem}
+    .product{border-top:4px solid var(--navy);padding-top:16px}
+    .product .score{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:.78rem;text-transform:uppercase;color:var(--teal);letter-spacing:.08em;margin:8px 0}
+    .product p{font-size:.91rem;color:var(--muted);margin:8px 0 0}
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .pillar{padding:20px;background:var(--panel);border-top:4px solid var(--teal)}
+    .pillar.r{border-color:var(--red)}
+    .pillar h3{margin-bottom:8px}.pillar p{margin:0;color:var(--muted);font-size:.92rem}
+    .scenario-controls{display:flex;gap:8px;margin:0 0 20px;flex-wrap:wrap}
+    .scenario-controls button{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:8px 16px;cursor:pointer;font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:700}
+    .scenario-controls button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+    @media (prefers-color-scheme: dark){.scenario-controls button.active{color:#0f171a}}
+    .model-hero{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+    .model-cell{background:var(--panel);padding:20px}
+    .model-cell span{font-family:"IBM Plex Sans Condensed",sans-serif;display:block;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+    .model-cell strong{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:1.8rem}
+    .assumption-list{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}
+    .assumption-list div{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:8px 0;font-family:"IBM Plex Sans Condensed",sans-serif;font-size:.9rem}
+    .model-table{margin-top:24px}
+    .model-row{display:grid;grid-template-columns:1.35fr repeat(3,.7fr);gap:8px;padding:14px 0;border-top:1px solid var(--line);align-items:center}
+    .model-row.header{font-family:"IBM Plex Sans Condensed",sans-serif;text-transform:uppercase;letter-spacing:.07em;font-size:.73rem;color:var(--muted);border:0}
+    .model-row span:not(:first-child){text-align:right;font-family:"IBM Plex Sans Condensed",sans-serif;font-variant-numeric:tabular-nums}
+    .target-box{margin-top:26px;background:var(--navy);color:#fff;padding:28px;display:grid;grid-template-columns:.7fr 1.3fr;gap:24px;align-items:center}
+    @media (prefers-color-scheme: dark){.target-box{color:#0f171a}}
+    .target-box .target{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:4rem;line-height:1;font-weight:600}
+    .target-box p{margin:0;font-size:.95rem}
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+    .event{padding:20px;border-right:1px solid var(--line)}
+    .event:last-child{border-right:0}
+    .event time{font-family:"IBM Plex Sans Condensed",sans-serif;color:var(--teal);font-weight:700;font-size:.78rem}
+    .event h3{font-size:1.03rem;margin:7px 0}.event p{font-size:.86rem;color:var(--muted);margin:0}
+    .watch{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .watch-item{background:var(--panel);padding:18px;border:1px solid var(--line)}
+    .watch-item b{font-family:"IBM Plex Sans Condensed",sans-serif;display:block}
+    .watch-item span{font-size:.88rem;color:var(--muted)}
+    .sources{font-size:.86rem;color:var(--muted)}
+    .sources ol{columns:2;column-gap:42px;padding-left:22px}
+    .sources li{break-inside:avoid;margin:0 0 12px}
+    .disclaimer{font-family:"IBM Plex Sans Condensed",sans-serif;font-size:.78rem;color:var(--muted);margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:800px){
+      .shell{width:min(100% - 24px,680px);padding-top:18px}
+      .mast,.grid-2{grid-template-columns:1fr}.datebox{border-left:0;border-top:1px solid var(--line);padding:16px 0 0}
+      .ticker-strip{grid-template-columns:1fr 1fr}.ticker-item:nth-child(2){border-right:0}.ticker-item:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.25)}
+      .section-head{grid-template-columns:1fr;gap:5px}section{padding:46px 0}
+      .grid-3,.pillars{grid-template-columns:1fr}.matrix-row{grid-template-columns:1fr .55fr;gap:6px 14px}.matrix-row p{grid-column:1/-1}
+      .timeline{grid-template-columns:1fr 1fr}.event:nth-child(2){border-right:0}.event:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .target-box{grid-template-columns:1fr}.sources ol{columns:1}.watch{grid-template-columns:1fr}
+    }
+    @media(max-width:540px){
+      body{font-size:16px}.shell{width:calc(100% - 20px)}.ticker-item{padding:15px 13px}.ticker-item strong{font-size:1.3rem}
+      .panel{padding:20px}.keyline{grid-template-columns:1fr}.metric-row{grid-template-columns:1.25fr repeat(3,.62fr);font-size:.85rem;gap:4px}
+      .model-hero{grid-template-columns:1fr}.model-cell{padding:15px}.assumption-list{grid-template-columns:1fr}.model-row{grid-template-columns:1.25fr repeat(3,.68fr);font-size:.82rem;gap:3px}
+      .timeline{grid-template-columns:1fr}.event{border-right:0;border-bottom:1px solid var(--line)!important}.event:last-child{border-bottom:0!important}
+      h1{font-size:2.75rem}.target-box .target{font-size:3.3rem}
+    }
+    @media print{.nav{display:none}.shell{width:100%;padding:0}.panel{box-shadow:none}section{break-inside:avoid}.target-box{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <header class="mast">
+    <div>
+      <div class="kicker">NYSE: WHR · Initiating coverage</div>
+      <h1>A turnaround with <em>little margin for error.</em></h1>
+      <p class="dek">Whirlpool's brands and installed base remain meaningful. But at $31.97, the equity is not simply “cheap”—it is a levered claim on a difficult demand and margin recovery.</p>
+    </div>
+    <div class="datebox">
+      <strong>Investment research snapshot</strong>
+      Market data through 18 September 2026<br />Research current to 19 September 2026<br />USD unless stated otherwise
+    </div>
+  </header>
+
+  <div class="ticker-strip" aria-label="Key investment metrics">
+    <div class="ticker-item"><span>Last close</span><strong>$31.97</strong><small>near 52-week low</small></div>
+    <div class="ticker-item"><span>Fair value</span><strong>$35</strong><small>scenario-weighted</small></div>
+    <div class="ticker-item"><span>Rating</span><strong>HOLD</strong><small>high risk</small></div>
+    <div class="ticker-item"><span>Net debt</span><strong>$5.83B</strong><small>at 30 Jun 2026</small></div>
+  </div>
+
+  <nav class="nav" aria-label="Report sections"><div class="nav-inner">
+    <a href="#verdict">Verdict</a><a href="#business">Business</a><a href="#financials">Financials</a><a href="#moat">Moat</a><a href="#products">Products</a><a href="#outlook">Outlook</a><a href="#valuation">Valuation</a><a href="#risks">Risks</a><a href="#sources">Sources</a>
+  </div></nav>
+
+  <section id="verdict">
+    <div class="section-head"><div class="section-no">01 / Verdict</div><div><h2>Value, but not yet a margin of safety</h2><p class="lead">The valuation looks optically low because the balance sheet absorbs most of the enterprise value. Our $35 fair value offers only about 9% upside—insufficient compensation for turnaround, refinancing and dilution risk.</p></div></div>
+    <div class="grid-2">
+      <article class="panel thesis-panel">
+        <div><span class="rating">HOLD</span><span class="risk-pill">High risk</span></div>
+        <p class="verdict-copy"><strong>Investment view:</strong> wait for evidence, not promises. A durable North America margin recovery and delivery of more than $300M of 2026 free cash flow would improve the risk/reward. A miss could reopen the balance-sheet question.</p>
+        <div class="keyline">
+          <div class="mini-stat"><strong>$35</strong><span>12-month fair value</span></div>
+          <div class="mini-stat"><strong>+9.5%</strong><span>upside from $31.97</span></div>
+        </div>
+        <ul class="bullets">
+          <li><strong>What works:</strong> scale, broad brands, retailer access, a high-margin SDA franchise and credible product innovation.</li>
+          <li><strong>What must change:</strong> North America pricing needs to outpace promotion and input inflation while demand stabilizes.</li>
+          <li><strong>What the market fears:</strong> leverage remains too high for a shrinking, cyclical earnings stream.</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <div class="chart-meta"><strong>WHR monthly closes</strong><span>30 Sep 2025–18 Sep 2026</span></div>
+        <div class="chart-wrap"><svg id="priceChart" viewBox="0 0 560 290" role="img" aria-labelledby="priceTitle priceDesc"><title id="priceTitle">Whirlpool monthly closing share price</title><desc id="priceDesc">A line chart declining from 78.60 dollars at September 2025 month-end to 31.97 dollars on September 18, 2026.</desc></svg></div>
+        <p class="chart-note" id="priceNote">Source: Finnhub market-data series fetched 19 Sep 2026. Monthly points are the last trading close in each month.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="business">
+    <div class="section-head"><div class="section-no">02 / Business</div><div><h2>A reshaped Americas appliance company</h2><p class="lead">After exiting direct ownership of Europe and deconsolidating India, Whirlpool is simpler—but more concentrated. Nearly 90% of 2025 sales came from the Americas, with North America doing most of the economic heavy lifting.</p></div></div>
+    <div class="grid-2">
+      <article class="panel">
+        <div class="eyebrow">FY2025 segment sales</div>
+        <div class="segment"><div class="segment-top"><strong>MDA North America</strong><span>$10.16B · 65.4%</span></div><div class="bar"><i style="width:65.4%"></i></div><small>4.9% segment EBIT margin</small></div>
+        <div class="segment"><div class="segment-top"><strong>MDA Latin America</strong><span>$3.27B · 21.1%</span></div><div class="bar"><i style="width:21.1%"></i></div><small>6.1% segment EBIT margin</small></div>
+        <div class="segment"><div class="segment-top"><strong>SDA Global</strong><span>$1.11B · 7.1%</span></div><div class="bar"><i style="width:7.1%"></i></div><small>16.0% segment EBIT margin</small></div>
+        <div class="segment"><div class="segment-top"><strong>Other</strong><span>$0.99B · 6.4%</span></div><div class="bar"><i style="width:6.4%"></i></div><small>Includes Asia, corporate and reconciling items</small></div>
+        <p class="chart-note">FY2025 Form 10-K. Segment sales total $15.524B. “Other” is not a stand-alone operating division.</p>
+      </article>
+      <div>
+        <div class="callout">The portfolio is cleaner, but the earnings mix is not yet higher quality: the best-margin business, SDA, contributed only 7.1% of sales in 2025.</div>
+        <div class="pillars">
+          <article class="pillar"><h3>Core scale</h3><p>Whirlpool, Maytag and Amana address the mass market; KitchenAid and JennAir reach premium and luxury customers.</p></article>
+          <article class="pillar"><h3>Regional depth</h3><p>Brastemp and Consul anchor Latin America. The region delivered a 6.1% segment margin in 2025.</p></article>
+          <article class="pillar"><h3>Higher-return niche</h3><p>Small appliances and InSinkErator produced a 16.0% segment margin, materially above the group.</p></article>
+        </div>
+        <div class="note-box"><strong>Europe is no longer an equity interest.</strong> Whirlpool sold its remaining 25% Beko Europe stake in June 2026, received $84M net cash and about 2.9% of Arçelik, and booked a $139M gain. Brand-licensing and supply agreements remain.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="financials">
+    <div class="section-head"><div class="section-no">03 / Financials</div><div><h2>The earnings compression is the story</h2><p class="lead">Sales fell 20% from 2023 to 2025, while ongoing EPS fell 61%. Q2 2026's 1.8% ongoing EBIT margin shows how little cushion remains when volume, promotions and inflation move against the company.</p></div></div>
+    <div class="grid-2">
+      <article class="panel">
+        <div class="eyebrow">Annual financial scorecard</div>
+        <div class="metric-row header"><span>$M except per-share</span><span>2023</span><span>2024</span><span>2025</span></div>
+        <div class="metric-row"><span>Net sales</span><span>19,455</span><span>16,607</span><span>15,524</span></div>
+        <div class="metric-row"><span>GAAP net income</span><span>481</span><span class="neg">(323)</span><span>318</span></div>
+        <div class="metric-row"><span>Ongoing EPS</span><span>$16.16</span><span>$12.21</span><span>$6.23</span></div>
+        <div class="metric-row"><span>Ongoing EBIT margin</span><span>6.1%</span><span>5.3%</span><span>4.7%</span></div>
+        <div class="metric-row"><span>Operating cash flow</span><span>915</span><span>835</span><span>467</span></div>
+        <div class="metric-row"><span>Free cash flow</span><span>366</span><span>385</span><span>~78–81</span></div>
+        <p class="chart-note">Comparability is affected by the Europe exit and India deconsolidation. 2025 adjusted tax rate was 3.5%, limiting the quality of ongoing EPS comparisons.</p>
+      </article>
+      <article class="panel">
+        <div class="eyebrow">Ongoing EPS erosion</div>
+        <div class="spark" aria-label="Ongoing EPS: 16.16 dollars in 2023, 12.21 in 2024, 6.23 in 2025, and 2.75 dollar midpoint of 2026 guidance">
+          <div class="spark-col"><b>$16.16</b><i class="spark-bar" style="height:100%"></i><span>2023</span></div>
+          <div class="spark-col"><b>$12.21</b><i class="spark-bar" style="height:75.6%"></i><span>2024</span></div>
+          <div class="spark-col"><b>$6.23</b><i class="spark-bar bad" style="height:38.6%"></i><span>2025</span></div>
+          <div class="spark-col"><b>$2.75</b><i class="spark-bar bad" style="height:17%"></i><span>2026E*</span></div>
+        </div>
+        <p class="chart-note">*Midpoint of company guidance, not actual. Bars start at zero. FY2023–FY2025 company results.</p>
+        <div class="note-box"><strong>The pivotal cash test:</strong> H1 2026 FCF was negative $1.108B. Reaching full-year guidance above $300M requires more than $1.4B of H2 cash generation, largely a working-capital reversal.</div>
+      </article>
+    </div>
+    <div class="grid-2" style="margin-top:24px">
+      <article class="panel">
+        <div class="eyebrow">Capital structure · 30 Jun 2026</div>
+        <div class="capital-stack">
+          <div class="capital-row"><span>Net debt</span><div class="capital-track"><i style="width:100%"></i></div><b>$5.83B</b></div>
+          <div class="capital-row equity"><span>Market cap*</span><div class="capital-track"><i style="width:35.7%"></i></div><b>$2.08B</b></div>
+        </div>
+        <p class="chart-note">*Computed using 65.199M reported common shares × $31.97. The valuation model conservatively uses 71.807M diluted-equivalent shares inferred from the $2.296B market-data capitalization.</p>
+      </article>
+      <article class="panel">
+        <h3>Leverage now dictates strategy</h3>
+        <ul class="bullets risk">
+          <li>$7.07B gross debt and $1.24B cash at quarter-end; about $5.83B net debt.</li>
+          <li>New $1B 7.50% notes due 2031 and $1B 7.875% notes due 2034; $2B ABL undrawn at quarter-end.</li>
+          <li>FY2025 ongoing EBIT covered interest only 2.1×. Moody's, S&amp;P and Fitch ratings were all below investment grade.</li>
+          <li>February financing increased common shares by about 16% and added an 8.5% preferred dividend burden.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="moat">
+    <div class="section-head"><div class="section-no">04 / Moat & competition</div><div><h2>A narrow moat under pressure</h2><p class="lead">Brand recognition, a domestic footprint and retailer access are real advantages. They have not prevented share loss or protected margins from aggressive Asian competitors and industry promotion.</p></div></div>
+    <div class="grid-2">
+      <article class="panel matrix">
+        <div class="matrix-row"><strong>Brand portfolio</strong><span class="grade">Strong</span><p>Whirlpool, KitchenAid, Maytag and JennAir cover value through luxury. JennAir's $106M trademark impairment is a warning that brand equity is not immutable.</p></div>
+        <div class="matrix-row"><strong>Distribution</strong><span class="grade">Strong</span><p>National retailer and builder-channel access creates reach, but customer concentration and retailer bargaining power constrain pricing.</p></div>
+        <div class="matrix-row"><strong>Cost position</strong><span class="grade neg">Weak</span><p>A U.S.-heavy footprint offers tariff protection but also exposes the company to higher domestic steel and component costs.</p></div>
+        <div class="matrix-row"><strong>Innovation</strong><span class="grade">Mixed+</span><p>23 KBIS 2026 awards validate the current pipeline. Connectivity can also add complexity and reported problems industry-wide.</p></div>
+        <div class="matrix-row"><strong>Balance sheet</strong><span class="grade neg">Weak</span><p>High leverage limits strategic flexibility precisely when competitors are investing and Western peers are restructuring.</p></div>
+      </article>
+      <article class="panel">
+        <div class="eyebrow">U.S. major appliances · 2023 value share</div>
+        <div class="segment"><div class="segment-top"><strong>Samsung</strong><span>21%</span></div><div class="bar"><i style="width:100%"></i></div></div>
+        <div class="segment"><div class="segment-top"><strong>LG</strong><span>19%</span></div><div class="bar"><i style="width:90.5%"></i></div></div>
+        <div class="segment"><div class="segment-top"><strong>GE Appliances / Haier</strong><span>18%</span></div><div class="bar"><i style="width:85.7%"></i></div></div>
+        <div class="segment"><div class="segment-top"><strong>Whirlpool</strong><span>15%</span></div><div class="bar"><i style="width:71.4%"></i></div></div>
+        <p class="chart-note">TraQline calendar-2023 data, published 10 Apr 2024. This is the latest concrete share dataset found; it must not be read as 2026 market share.</p>
+        <div class="note-box"><strong>Competitive signal:</strong> Haier and Hisense expanded their combined European washer share from 2.9% in 2016 to 20.5% in 2025, illustrating the scale and speed of Chinese competition.</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="section-head"><div class="section-no">05 / Products</div><div><h2>Strength in practical categories; uneven technology leadership</h2><p class="lead">The portfolio still earns consumer trust, particularly in dishwashers and dryers. But LG and Samsung lead important laundry recommendations, while smart features increase both differentiation and failure points.</p></div></div>
+    <div class="grid-3">
+      <article class="product"><h3>Whirlpool core</h3><div class="score">Assessment · Competitive</div><p>ACSI 2026 rated Whirlpool 81 overall and best-in-class in dishwashers (84) and dryers (83). Its 5.2-cu-ft smart top-loader was a 2026 Tom's Guide category pick.</p></article>
+      <article class="product"><h3>KitchenAid</h3><div class="score">Assessment · Strongest brand</div><p>Premium culinary positioning remains differentiated. The 30-inch smart double wall oven with cooking camera and doneness detection won Best of KBIS Best in Show.</p></article>
+      <article class="product"><h3>Maytag</h3><div class="score">Assessment · Solid niche</div><p>Dependability positioning is clear; the MFW7020RF washer was cited as a strong option for pet households. It competes against LG's broader reliability leadership.</p></article>
+      <article class="product"><h3>JennAir</h3><div class="score neg">Assessment · At risk</div><p>Luxury design and induction innovation are relevant, but the 2025 $106M trademark impairment points to weaker-than-expected economics.</p></article>
+      <article class="product"><h3>InSinkErator / SDA</h3><div class="score">Assessment · Financial standout</div><p>Disposers, hot-water products and small appliances produced a 16.0% segment EBIT margin in 2025—the portfolio's clearest quality asset.</p></article>
+      <article class="product"><h3>Connected appliances</h3><div class="score">Assessment · Two-edged</div><p>Smart ovens, refrigeration and app integration support premiumization. J.D. Power's 2025 study found connectivity correlated with more reported problems across the industry.</p></article>
+    </div>
+  </section>
+
+  <section id="outlook">
+    <div class="section-head"><div class="section-no">06 / Outlook</div><div><h2>2026 guidance needs an exceptional finish</h2><p class="lead">Management still expects approximately $15B of revenue, a 4% ongoing EBIT margin and year-end net debt below $5B. Those outcomes are possible, but H1 performance leaves very little execution slack.</p></div></div>
+    <div class="grid-2">
+      <article class="panel">
+        <div class="eyebrow">Company FY2026 guidance · reaffirmed 3 Aug</div>
+        <div class="metric-row"><span>Revenue</span><span></span><span></span><span>~$15.0B</span></div>
+        <div class="metric-row"><span>Ongoing EBIT margin</span><span></span><span></span><span>~4.0%</span></div>
+        <div class="metric-row"><span>Ongoing EPS</span><span></span><span></span><span>$2.50–3.00</span></div>
+        <div class="metric-row"><span>Operating cash flow</span><span></span><span></span><span>~$700M</span></div>
+        <div class="metric-row"><span>Free cash flow</span><span></span><span></span><span>&gt;$300M</span></div>
+        <div class="metric-row"><span>Year-end net debt</span><span></span><span></span><span>&lt;$5.0B</span></div>
+        <p class="chart-note">Company guidance, not our forecast. Zacks' 14 Sep 2026 consensus was $14.92B revenue and $2.25 EPS.</p>
+      </article>
+      <article class="panel">
+        <h3>What can drive the recovery</h3>
+        <ul class="bullets">
+          <li><strong>Pricing:</strong> promotional price rose more than 10% from Q1; a 4% list-price increase took effect in July.</li>
+          <li><strong>Cost:</strong> management targets more than $150M of structural savings, roughly 100 basis points of margin.</li>
+          <li><strong>Housing:</strong> replacement and housing turnover can lift unit demand, but NAR's prior forecasts missed materially.</li>
+          <li><strong>Product mix:</strong> premium KitchenAid launches and SDA growth can improve mix if consumers keep spending.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="timeline" style="margin-top:28px">
+      <article class="event"><time>Now</time><h3>Demand trough?</h3><p>Management described March demand as recessionary. Confirmation requires industry stabilization, not just price increases.</p></article>
+      <article class="event"><time>H2 2026</time><h3>Cash conversion</h3><p>The decisive test is the working-capital release required to meet full-year FCF and debt goals.</p></article>
+      <article class="event"><time>2027</time><h3>Margin rebuild</h3><p>Our base case assumes ongoing EBIT margin recovers to 5.25%, still below 2023's 6.1%.</p></article>
+      <article class="event"><time>2028+</time><h3>Replacement tailwind</h3><p>The 2020–2022 purchase cohort begins aging toward typical 10–14-year replacement windows; timing is uncertain.</p></article>
+    </div>
+  </section>
+
+  <section id="valuation">
+    <div class="section-head"><div class="section-no">07 / Valuation</div><div><h2>Three lenses, one cautious target</h2><p class="lead">We value Whirlpool as a turnaround, not a steady compounder. The model blends normalized P/E, enterprise value to ongoing EBIT and equity free-cash-flow yield across bear, base and bull cases.</p></div></div>
+    <div class="scenario-controls" role="group" aria-label="Select valuation scenario">
+      <button type="button" data-scenario="bear">Bear</button><button type="button" data-scenario="base" class="active">Base</button><button type="button" data-scenario="bull">Bull</button>
+    </div>
+    <article class="panel" aria-live="polite">
+      <div class="model-hero">
+        <div class="model-cell"><span>Scenario</span><strong id="scenarioName">Base</strong></div>
+        <div class="model-cell"><span>Blended value / share</span><strong id="scenarioValue">$33.63</strong></div>
+        <div class="model-cell"><span>vs. $31.97</span><strong id="scenarioReturn">+5.2%</strong></div>
+      </div>
+      <div class="assumption-list">
+        <div><span>Normalized EPS</span><b id="aEps">$4.25</b></div><div><span>P/E multiple</span><b id="aPe">10.0×</b></div>
+        <div><span>Revenue</span><b id="aRevenue">$15.0B</b></div><div><span>Ongoing EBIT margin</span><b id="aMargin">5.25%</b></div>
+        <div><span>EV / EBIT</span><b id="aEv">8.5×</b></div><div><span>Net debt</span><b id="aDebt">$5.0B</b></div>
+        <div><span>Equity FCF</span><b id="aFcf">$350M</b></div><div><span>Required FCF yield</span><b id="aYield">14.0%</b></div>
+      </div>
+      <p class="chart-note">Interactive scenario values are our assumptions—not management guidance. 71.807M diluted-equivalent shares are used, inferred from the $2.296B market-data capitalization at $31.97 to reflect the 2026 financing overhang. Negative equity value under EV/EBIT is floored at zero.</p>
+    </article>
+
+    <div class="model-table" aria-label="Valuation summary by scenario">
+      <div class="model-row header"><span>Method</span><span>Bear</span><span>Base</span><span>Bull</span></div>
+      <div class="model-row"><span>Normalized P/E</span><span>$12.00</span><span>$42.50</span><span>$72.00</span></div>
+      <div class="model-row"><span>EV / ongoing EBIT</span><span>$0.00</span><span>$23.59</span><span>$69.35</span></div>
+      <div class="model-row"><span>Equity FCF yield</span><span>$6.96</span><span>$34.82</span><span>$69.63</span></div>
+      <div class="model-row"><strong>Scenario blend</strong><span><strong>$6.32</strong></span><span><strong>$33.63</strong></span><span><strong>$70.33</strong></span></div>
+      <div class="model-row"><span>Probability weight</span><span>30%</span><span>45%</span><span>25%</span></div>
+    </div>
+    <div class="target-box">
+      <div><div class="label" style="color:inherit;opacity:.72">Probability-weighted value</div><div class="target">$34.61</div></div>
+      <p>Rounded to a <strong>$35 fair value</strong>. The result sits below the $45.44 sell-side consensus target because our bear case explicitly recognizes the equity's subordination to $5.8B of net debt and the 2026 financing's dilution overhang. At only ~9% upside, the stock does not clear a high-risk required return.</p>
+    </div>
+    <div class="note-box"><strong>Relative valuation check:</strong> Whirlpool's approximately 11× trailing P/E looks similar to Haier's roughly 11.6×. That is not enough to call WHR cheap: Haier had net cash and growth, while Whirlpool had junk ratings, no common dividend and contracting earnings.</div>
+  </section>
+
+  <section id="risks">
+    <div class="section-head"><div class="section-no">08 / Risks & signposts</div><div><h2>What would change the call</h2><p class="lead">This is a high-beta, high-short-interest turnaround. Investors should focus on a small set of measurable signposts rather than headline revenue alone.</p></div></div>
+    <div class="grid-2">
+      <article class="panel">
+        <h3>Principal downside risks</h3>
+        <ul class="bullets risk">
+          <li>Promotions absorb tariff pricing and keep North America margins depressed.</li>
+          <li>2026 free cash flow misses, leaving leverage above 6× and increasing refinancing or equity risk.</li>
+          <li>Samsung, LG, Haier, Hisense and Midea gain share faster than cost cuts can offset.</li>
+          <li>Brazil tax exposures and product litigation create additional cash claims.</li>
+          <li>Preferred dividends and possible mandatory conversion add dilution pressure.</li>
+        </ul>
+      </article>
+      <div class="watch">
+        <article class="watch-item"><b>Positive: NA margin &gt;5%</b><span>Would show price/cost actions are restoring the core franchise.</span></article>
+        <article class="watch-item"><b>Positive: net debt &lt;$5B</b><span>Would validate H2 cash conversion and lower balance-sheet risk.</span></article>
+        <article class="watch-item"><b>Negative: FCF below $300M</b><span>Would undermine debt reduction and our 14% base required yield.</span></article>
+        <article class="watch-item"><b>Negative: another equity raise</b><span>Would signal that the current capital structure remains unstable.</span></article>
+        <article class="watch-item"><b>Volatility: short interest 22.9%</b><span>Creates squeeze potential on good news and sharp downside on misses.</span></article>
+        <article class="watch-item"><b>Open question: 2027 EPS</b><span>Current aggregator estimates conflict; this note does not use one.</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" class="sources">
+    <div class="section-head"><div class="section-no">09 / Sources</div><div><h2>Evidence and open questions</h2><p class="lead">Company reporting anchors the financial analysis; third-party sources inform market, competition and consensus. Calculated values are identified as such.</p></div></div>
+    <ol>
+      <li><a href="https://ar.whirlpoolcorp.com/Whirlpool_2025_AR.pdf" target="_blank" rel="noopener noreferrer">Whirlpool 2025 Annual Report / Form 10-K</a> — annual financials, segments and interest expense.</li>
+      <li><a href="https://www.morningstar.com/news/pr-newswire/20260128de73242/whirlpool-corporation-announces-fourth-quarter-and-full-year-results-provides-2026-guidance" target="_blank" rel="noopener noreferrer">Whirlpool Q4 and FY2025 results</a> — 28 Jan 2026.</li>
+      <li>Whirlpool Q1 and Q2 2026 releases and Forms 10-Q — operating results, debt, Beko transaction, contingencies and guidance; filed through 4 Aug 2026.</li>
+      <li><a href="https://seekingalpha.com/pr/20445337-whirlpool-celebrates-kbis-2026-earning-best-of-kbis-and-record-number-of-award-wins" target="_blank" rel="noopener noreferrer">Whirlpool KBIS 2026 awards release</a> — 19 Mar 2026.</li>
+      <li><a href="https://www.reuters.com/business/electrolux-reports-surprise-q1-operating-loss-2026-04-24/" target="_blank" rel="noopener noreferrer">Reuters: Electrolux Q1 loss and rights issue</a> — 24 Apr 2026.</li>
+      <li><a href="https://www.electroluxgroup.com/wp-content/uploads/sites/3/2020/07/Transcript-outlook-slides-Q1-2026.pdf" target="_blank" rel="noopener noreferrer">Electrolux Q1 2026 outlook transcript</a> — tariffs and demand.</li>
+      <li><a href="https://kr-asia.com/chinese-appliance-makers-bolster-europe-push-eye-vertical-integration" target="_blank" rel="noopener noreferrer">KrASIA: Chinese appliance makers' Europe expansion</a> — Sep 2026.</li>
+      <li><a href="https://www.realtor.com/news/trends/2026-housing-market-forecast-nar/" target="_blank" rel="noopener noreferrer">Realtor.com: NAR 2026 housing forecast</a> — Nov 2025; forecast uncertainty noted.</li>
+      <li><a href="https://WWW.ZACKS.COM/stock/news/2983859/why-is-whirlpool-whr-down-15-since-last-earnings-report" target="_blank" rel="noopener noreferrer">Zacks: post-Q2 Whirlpool performance</a> — 2 Sep 2026.</li>
+      <li><a href="https://www.marketbeat.com/articles/whirlpools-worst-may-be-overupside-opportunity-ahead/" target="_blank" rel="noopener noreferrer">MarketBeat: consensus and market view</a> — page observed Sep 2026.</li>
+      <li><a href="https://finnhub.io/?q=%22WHR%22" target="_blank" rel="noopener noreferrer">Finnhub WHR market data</a> — price series fetched 19 Sep 2026.</li>
+      <li><a href="https://www.stocktitan.net/news/WHR/whirlpool-corporation-highlights-portfolio-wide-industry-first-or3v8x9x0vzg.html" target="_blank" rel="noopener noreferrer">StockTitan: Whirlpool KBIS product preview</a> — product pipeline.</li>
+    </ol>
+    <div class="note-box"><strong>Not verified:</strong> public 2025–2026 AHAM unit shipments; current 2025–2026 U.S. category share; a reliable FY2027 consensus EPS; complete maturity schedule beyond the disclosed refinancing; current Samsung/LG trading multiples; five-year WHR valuation ranges; full pension funded status. These gaps are excluded from the valuation.</div>
+    <p class="disclaimer">This research note is informational and does not constitute personalized investment advice. Fair value is highly sensitive to operating margin, free cash flow and net debt assumptions. Market price is the 18 Sep 2026 close; all valuation scenarios are analyst estimates based on the cited factual record.</p>
+  </section>
+</main>
+<script>
+(() => {
+  const priceData = [
+    {d:'Sep 25',v:78.60},{d:'Oct',v:71.63},{d:'Nov',v:77.35},{d:'Dec',v:72.14},
+    {d:'Jan 26',v:79.99},{d:'Feb',v:68.43},{d:'Mar',v:53.92},{d:'Apr',v:56.06},
+    {d:'May',v:43.42},{d:'Jun',v:39.42},{d:'Jul',v:37.50},{d:'Aug',v:40.84},{d:'Sep 18',v:31.97}
+  ];
+  const svg = document.getElementById('priceChart');
+  const NS='http://www.w3.org/2000/svg', W=560,H=290, m={l:46,r:18,t:18,b:42};
+  const min=0, max=Math.ceil(Math.max(...priceData.map(x=>x.v))/20)*20;
+  const x=i=>m.l+i*(W-m.l-m.r)/(priceData.length-1), y=v=>m.t+(max-v)*(H-m.t-m.b)/(max-min);
+  const css=getComputedStyle(document.documentElement), line=css.getPropertyValue('--line').trim(), muted=css.getPropertyValue('--muted').trim(), teal=css.getPropertyValue('--teal').trim(), red=css.getPropertyValue('--red').trim();
+  function el(tag,attrs,text){const n=document.createElementNS(NS,tag);Object.entries(attrs||{}).forEach(([k,v])=>n.setAttribute(k,v));if(text)n.textContent=text;svg.appendChild(n);return n}
+  for(let v=0;v<=max;v+=20){el('line',{x1:m.l,y1:y(v),x2:W-m.r,y2:y(v),stroke:line,'stroke-width':1});el('text',{x:m.l-10,y:y(v)+4,'text-anchor':'end',fill:muted,'font-size':11,'font-family':'IBM Plex Sans Condensed'},'$'+v)}
+  const area='M '+x(0)+' '+y(0)+' L '+priceData.map((p,i)=>x(i)+' '+y(p.v)).join(' L ')+' L '+x(priceData.length-1)+' '+y(0)+' Z';
+  el('path',{d:area,fill:teal,opacity:.10});
+  const path='M '+priceData.map((p,i)=>x(i)+' '+y(p.v)).join(' L ');
+  el('path',{d:path,fill:'none',stroke:teal,'stroke-width':3,'stroke-linecap':'round','stroke-linejoin':'round'});
+  priceData.forEach((p,i)=>{if(i===0||i===4||i===8||i===12){el('circle',{cx:x(i),cy:y(p.v),r:4,fill:i===12?red:teal});el('text',{x:x(i),y:H-16,'text-anchor':i===0?'start':i===12?'end':'middle',fill:muted,'font-size':11,'font-family':'IBM Plex Sans Condensed'},p.d)}});
+  el('text',{x:x(0)+7,y:y(priceData[0].v)-9,fill:teal,'font-size':12,'font-weight':700,'font-family':'IBM Plex Sans Condensed'},'$78.60');
+  el('text',{x:x(12)-7,y:y(priceData[12].v)-9,'text-anchor':'end',fill:red,'font-size':12,'font-weight':700,'font-family':'IBM Plex Sans Condensed'},'$31.97');
+  const delta=(priceData.at(-1).v/priceData[0].v-1)*100;
+  document.getElementById('priceNote').textContent=`Source: Finnhub series fetched 19 Sep 2026. Monthly closes fell ${Math.abs(delta).toFixed(1)}% from Sep 2025 month-end to 18 Sep 2026.`;
+
+  const s={
+    bear:{name:'Bear',eps:1.50,pe:8,rev:14.5,margin:3.0,ev:7,debt:5.8,fcf:100,yield:20,value:6.3210},
+    base:{name:'Base',eps:4.25,pe:10,rev:15.0,margin:5.25,ev:8.5,debt:5.0,fcf:350,yield:14,value:33.6344},
+    bull:{name:'Bull',eps:6.00,pe:12,rev:15.8,margin:6.0,ev:10,debt:4.5,fcf:500,yield:10,value:70.3279}
+  };
+  const ids={name:'scenarioName',value:'scenarioValue',eps:'aEps',pe:'aPe',rev:'aRevenue',margin:'aMargin',ev:'aEv',debt:'aDebt',fcf:'aFcf',yield:'aYield'};
+  function render(k){const v=s[k],ret=(v.value/31.97-1)*100;document.getElementById(ids.name).textContent=v.name;document.getElementById(ids.value).textContent='$'+v.value.toFixed(2);document.getElementById('scenarioReturn').textContent=(ret>=0?'+':'')+ret.toFixed(1)+'%';document.getElementById('scenarioReturn').className=ret>=0?'pos':'neg';document.getElementById(ids.eps).textContent='$'+v.eps.toFixed(2);document.getElementById(ids.pe).textContent=v.pe.toFixed(1)+'×';document.getElementById(ids.rev).textContent='$'+v.rev.toFixed(1)+'B';document.getElementById(ids.margin).textContent=v.margin.toFixed(v.margin%1?2:1)+'%';document.getElementById(ids.ev).textContent=v.ev.toFixed(1)+'×';document.getElementById(ids.debt).textContent='$'+v.debt.toFixed(1)+'B';document.getElementById(ids.fcf).textContent='$'+v.fcf+'M';document.getElementById(ids.yield).textContent=v.yield.toFixed(1)+'%';document.querySelectorAll('[data-scenario]').forEach(b=>b.classList.toggle('active',b.dataset.scenario===k));}
+  document.querySelectorAll('[data-scenario]').forEach(b=>b.addEventListener('click',()=>render(b.dataset.scenario)));
+})();
+</script>
+</body>
+</html>

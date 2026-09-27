@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Investment-grade equity research on Wynn Resorts: business quality, financials, catalysts, risks and three-method valuation." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,650;8..60,750&display=swap" rel="stylesheet">
+  <title>Wynn Resorts Equity Research Note</title>
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#f5f5f1;--paper:#fff;--ink:#16202a;--muted:#5c6670;--faint:#e1e3df;
+      --navy:#102a43;--navy-2:#1f4668;--orange:#c95324;--orange-soft:#f7e4db;
+      --green:#1e7556;--green-soft:#e2f0e9;--red:#a93e37;--red-soft:#f6e4e2;
+      --amber:#966312;--amber-soft:#f6edcf;--blue-soft:#e2edf5;
+      --shadow:0 12px 36px rgba(26,39,52,.08);
+    }
+    @media(prefers-color-scheme:dark){
+      :root{--bg:#0e141a;--paper:#151e26;--ink:#edf2f4;--muted:#aeb8bf;--faint:#2d3942;
+      --navy:#a8cee8;--navy-2:#83b3d5;--orange:#ef8b5e;--orange-soft:#3a251d;
+      --green:#72c6a4;--green-soft:#18342a;--red:#ee8f87;--red-soft:#3c2424;
+      --amber:#e5bb69;--amber-soft:#372f1e;--blue-soft:#1c3141;--shadow:0 12px 36px rgba(0,0,0,.25)}
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:22px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:16px;line-height:1.62}
+    a{color:var(--navy-2);text-decoration-thickness:1px;text-underline-offset:3px}
+    button{font:inherit}
+    .page{max-width:1240px;margin:auto;padding:28px 26px 80px}
+    .layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:38px;align-items:start}
+    .rail{position:sticky;top:20px}
+    .ticker{font-weight:700;letter-spacing:.08em;color:var(--orange);margin-bottom:18px}
+    .rail nav{display:grid;gap:3px;border-left:1px solid var(--faint);padding-left:13px}
+    .rail nav a{color:var(--muted);text-decoration:none;font-size:.83rem;padding:5px 8px;border-radius:4px}
+    .rail nav a:hover,.rail nav a:focus{background:var(--orange-soft);color:var(--ink)}
+    .rail-card{margin-top:22px;border-top:3px solid var(--orange);padding-top:12px}
+    .rail-card strong{font-family:"Source Serif 4",serif;font-size:1.6rem}
+    .rail-card small{display:block;color:var(--muted);line-height:1.45;margin-top:5px}
+    main{min-width:0}
+    .mast{border-top:7px solid var(--navy);padding-top:28px;margin-bottom:34px}
+    .kicker{display:flex;justify-content:space-between;gap:18px;color:var(--muted);font-size:.83rem;font-weight:600;letter-spacing:.04em;border-bottom:1px solid var(--faint);padding-bottom:11px}
+    h1,h2,h3{font-family:"Source Serif 4",serif;line-height:1.08;margin:0;color:var(--ink)}
+    h1{font-size:clamp(2.65rem,6.5vw,5.6rem);letter-spacing:-.045em;max-width:850px;margin:28px 0 17px}
+    .deck{font-family:"Source Serif 4",serif;font-size:clamp(1.18rem,2.2vw,1.55rem);line-height:1.45;max-width:850px;color:var(--muted);margin:0 0 26px}
+    .verdict-band{display:grid;grid-template-columns:1.3fr repeat(3,.72fr);background:var(--navy);color:#fff;box-shadow:var(--shadow)}
+    .verdict-band>div{padding:19px 21px;border-right:1px solid rgba(255,255,255,.17)}
+    .verdict-band>div:last-child{border:0}
+    .verdict-band span{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;opacity:.72;margin-bottom:4px}
+    .verdict-band strong{font-size:1.34rem;line-height:1.2}
+    .verdict-band .call{color:#ffd6c4;font-family:"Source Serif 4",serif;font-size:1.65rem}
+    .up{color:#9fe4c7}
+    section{padding:40px 0;border-top:1px solid var(--faint)}
+    .section-head{display:grid;grid-template-columns:130px minmax(0,1fr);gap:18px;margin-bottom:26px}
+    .section-no{color:var(--orange);font-weight:700;font-size:.78rem;letter-spacing:.1em}
+    h2{font-size:clamp(2rem,4vw,3.35rem);letter-spacing:-.035em}
+    h3{font-size:1.42rem;letter-spacing:-.015em}
+    p{margin:0 0 15px}
+    .lead{font-family:"Source Serif 4",serif;font-size:1.22rem;line-height:1.55;max-width:780px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
+    .card{background:var(--paper);padding:24px;box-shadow:0 1px 0 var(--faint);min-width:0}
+    .card h3{margin-bottom:10px}
+    .card p:last-child{margin-bottom:0}
+    .thesis{border-top:4px solid var(--navy)}
+    .thesis.watch{border-color:var(--orange)}
+    .thesis.risk{border-color:var(--red)}
+    .num{font-family:"Source Serif 4",serif;font-size:2.15rem;font-weight:700;line-height:1;color:var(--navy);margin:8px 0 10px}
+    .label{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--muted)}
+    .source{font-size:.72rem;font-weight:600;white-space:nowrap}
+    sup .source{text-decoration:none}
+    .snapshot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--faint);border-bottom:1px solid var(--faint);margin-top:24px}
+    .snapshot>div{padding:18px 16px;border-right:1px solid var(--faint)}
+    .snapshot>div:last-child{border:0}
+    .snapshot strong{display:block;font-family:"Source Serif 4",serif;font-size:1.6rem}
+    .snapshot span{color:var(--muted);font-size:.76rem}
+    .note{font-size:.83rem;color:var(--muted);line-height:1.5}
+    .bar-list{display:grid;gap:15px;margin-top:19px}
+    .bar-row{display:grid;grid-template-columns:155px minmax(0,1fr) 62px;gap:12px;align-items:center;font-size:.84rem}
+    .track{height:11px;background:var(--faint);position:relative;overflow:hidden}
+    .fill{height:100%;background:var(--navy-2)}
+    .fill.orange{background:var(--orange)}
+    .fill.green{background:var(--green)}
+    .bar-row strong{text-align:right}
+    .product-table{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:16px}
+    .product-table th,.product-table td{padding:12px 10px;border-bottom:1px solid var(--faint);text-align:right;vertical-align:top}
+    .product-table th:first-child,.product-table td:first-child{text-align:left}
+    .product-table th{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+    .financial-strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--paper);margin-bottom:22px}
+    .financial-strip>div{padding:21px 18px;border-right:1px solid var(--faint)}
+    .financial-strip>div:last-child{border:0}
+    .financial-strip strong{font-family:"Source Serif 4",serif;font-size:1.65rem;display:block}
+    .delta-neg{color:var(--red);font-size:.76rem;font-weight:600}
+    .delta-pos{color:var(--green);font-size:.76rem;font-weight:600}
+    .chart-card{background:var(--paper);padding:22px}
+    .chart-title{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:12px}
+    .chart-title strong{font-family:"Source Serif 4",serif;font-size:1.25rem}
+    #priceChart{display:block;width:100%;height:auto;min-height:285px}
+    .chart-caption{font-size:.76rem;color:var(--muted);margin-top:8px}
+    .timeline{position:relative;margin:10px 0 0 5px;padding-left:30px;border-left:2px solid var(--faint)}
+    .event{position:relative;padding:0 0 27px}
+    .event:last-child{padding-bottom:0}
+    .event::before{content:"";position:absolute;width:12px;height:12px;border-radius:50%;left:-37px;top:5px;background:var(--orange);border:3px solid var(--bg)}
+    .event time{font-weight:700;color:var(--orange);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}
+    .event h3{font-size:1.18rem;margin:4px 0 6px}
+    .project-hero{background:var(--navy);color:#fff;padding:28px;display:grid;grid-template-columns:1.35fr .65fr;gap:24px}
+    .project-hero h3{font-size:2rem;color:#fff;margin-bottom:10px}
+    .project-hero p{color:#d8e5ee}
+    .project-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.17)}
+    .project-stats div{background:var(--navy);padding:16px}
+    .project-stats strong{display:block;font-family:"Source Serif 4",serif;font-size:1.4rem;color:#ffd6c4}
+    .project-stats span{font-size:.7rem;color:#c3d2dd}
+    .moat-score{display:grid;gap:15px;margin-top:16px}
+    .score-row{display:grid;grid-template-columns:145px 1fr 38px;gap:12px;align-items:center;font-size:.83rem}
+    .score-track{height:8px;background:var(--faint)}
+    .score-track i{display:block;height:100%;background:var(--orange)}
+    .competition{display:grid;gap:1px;background:var(--faint);border:1px solid var(--faint)}
+    .comp-row{display:grid;grid-template-columns:112px 1fr 1fr;background:var(--paper)}
+    .comp-row>div{padding:15px 16px}
+    .comp-row>div:first-child{font-weight:700;color:var(--orange)}
+    .comp-row.head{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+    .controls button{border:1px solid var(--faint);background:var(--paper);color:var(--ink);padding:9px 15px;border-radius:999px;cursor:pointer;font-weight:600}
+    .controls button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .scenario-panel{background:var(--paper);padding:27px;border-top:4px solid var(--orange)}
+    .scenario-top{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+    .scenario-price{text-align:right}
+    .scenario-price strong{font-family:"Source Serif 4",serif;font-size:3rem;line-height:1;display:block;color:var(--navy)}
+    .assumptions{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--faint);margin-top:22px}
+    .assumptions>div{background:var(--paper);padding:14px}
+    .assumptions span{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+    .assumptions strong{font-size:1rem}
+    .valuation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    .model{background:var(--paper);padding:22px;border-top:3px solid var(--navy)}
+    .model .value{font-family:"Source Serif 4",serif;font-size:2rem;color:var(--navy);font-weight:700}
+    .model small{color:var(--muted);display:block;line-height:1.45}
+    .sensitivity{width:100%;border-collapse:collapse;margin-top:18px;font-size:.82rem}
+    .sensitivity th,.sensitivity td{padding:9px;text-align:center;border:1px solid var(--faint)}
+    .sensitivity th{color:var(--muted);font-size:.7rem}
+    .sensitivity .base-cell{background:var(--orange-soft);font-weight:700;color:var(--orange)}
+    .waterfall{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--faint);margin-top:18px}
+    .waterfall div{background:var(--paper);padding:14px 10px;text-align:center}
+    .waterfall strong{display:block;font-family:"Source Serif 4",serif;font-size:1.28rem}
+    .waterfall span{font-size:.67rem;color:var(--muted)}
+    .risk-matrix{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--faint);border:1px solid var(--faint)}
+    .risk-item{background:var(--paper);padding:19px;display:grid;grid-template-columns:auto 1fr;gap:12px}
+    .risk-rank{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--red-soft);color:var(--red);font-weight:700}
+    .risk-item h3{font-size:1.1rem;margin-bottom:4px}
+    .risk-item p{font-size:.84rem;color:var(--muted);margin:0}
+    .catalyst-list{counter-reset:cat;display:grid;gap:1px;background:var(--faint)}
+    .catalyst{counter-increment:cat;background:var(--paper);padding:17px 19px;display:grid;grid-template-columns:42px 1fr;gap:12px}
+    .catalyst::before{content:counter(cat,decimal-leading-zero);font-family:"Source Serif 4",serif;color:var(--green);font-weight:700;font-size:1.15rem}
+    .catalyst strong{display:block;margin-bottom:2px}
+    .callout{background:var(--orange-soft);padding:23px;border-left:5px solid var(--orange);margin-top:22px}
+    .callout strong{font-family:"Source Serif 4",serif;font-size:1.2rem}
+    .decision{background:var(--navy);color:white;padding:31px;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
+    .decision h2{color:#fff;font-size:2.6rem}
+    .decision p{color:#d5e0e8;margin-top:12px}
+    .decision-box{border-left:1px solid rgba(255,255,255,.25);padding-left:24px}
+    .decision-box strong{font-family:"Source Serif 4",serif;font-size:3.4rem;color:#ffd1bd;display:block;line-height:1}
+    .decision-box span{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:#c6d4de}
+    details{border-top:1px solid var(--faint);padding:15px 0}
+    summary{cursor:pointer;font-weight:700}
+    details p,details ul{font-size:.86rem;color:var(--muted)}
+    .sources{display:grid;grid-template-columns:1fr 1fr;gap:10px 26px;padding:0;margin:0;list-style:none;counter-reset:src}
+    .sources li{counter-increment:src;font-size:.79rem;color:var(--muted);padding-left:30px;position:relative;overflow-wrap:anywhere}
+    .sources li::before{content:"[" counter(src) "]";position:absolute;left:0;color:var(--orange);font-weight:700}
+    .method{background:var(--paper);padding:20px;margin-top:22px;font-size:.81rem;color:var(--muted)}
+    .disclaimer{margin-top:30px;padding-top:18px;border-top:1px solid var(--faint);font-size:.76rem;color:var(--muted)}
+    @media(max-width:900px){
+      .page{padding:20px 18px 60px}.layout{grid-template-columns:1fr}.rail{display:none}
+      .verdict-band{grid-template-columns:1fr 1fr}.verdict-band>div:nth-child(2){border-right:0}.verdict-band>div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.17)}
+      .section-head{grid-template-columns:1fr;gap:5px}.financial-strip{grid-template-columns:1fr 1fr}.financial-strip>div{border-bottom:1px solid var(--faint)}
+      .project-hero,.decision{grid-template-columns:1fr}.decision-box{border-left:0;border-top:1px solid rgba(255,255,255,.25);padding:20px 0 0}
+    }
+    @media(max-width:650px){
+      body{font-size:15px}.page{padding:14px 13px 48px}.mast{padding-top:18px}.kicker{display:block}.kicker span:last-child{display:block;margin-top:4px}
+      h1{font-size:2.75rem;margin-top:21px}.grid-2,.grid-3,.valuation-grid,.risk-matrix{grid-template-columns:1fr}.snapshot{grid-template-columns:1fr 1fr}
+      .snapshot>div:nth-child(2){border-right:0}.snapshot>div:nth-child(-n+2){border-bottom:1px solid var(--faint)}
+      .financial-strip{grid-template-columns:1fr 1fr}.financial-strip>div:last-child{grid-column:1/-1}
+      .bar-row{grid-template-columns:110px minmax(0,1fr) 52px;gap:8px}.comp-row{grid-template-columns:1fr}.comp-row.head{display:none}.comp-row>div{padding:8px 13px}.comp-row>div:first-child{padding-top:15px}.comp-row>div:last-child{padding-bottom:15px;color:var(--muted)}
+      .scenario-top{grid-template-columns:1fr}.scenario-price{text-align:left}.assumptions{grid-template-columns:1fr}.waterfall{grid-template-columns:1fr 1fr}.waterfall div:last-child{grid-column:1/-1}
+      .sources{grid-template-columns:1fr}.project-stats{grid-template-columns:1fr 1fr}.product-table,.product-table thead,.product-table tbody,.product-table tr,.product-table th,.product-table td{display:block}.product-table thead{display:none}.product-table tr{padding:12px 0;border-bottom:1px solid var(--faint)}.product-table td{border:0;padding:3px 0;text-align:left}.product-table td::before{content:attr(data-label) ": ";color:var(--muted);font-size:.72rem;text-transform:uppercase}.product-table td:first-child{font-weight:700}.product-table td:first-child::before{content:""}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{body{background:white;color:#111}.page{max-width:none;padding:0}.rail{display:none}.layout{display:block}.card,.chart-card,.scenario-panel,.model{box-shadow:none;border:1px solid #ccc}a{color:#111}.controls{display:none}section{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="layout">
+      <aside class="rail" aria-label="Report navigation">
+        <div class="ticker">NASDAQ · WYNN</div>
+        <nav>
+          <a href="#view">Investment view</a><a href="#business">Business & moat</a><a href="#financials">Financials</a><a href="#growth">Growth pipeline</a><a href="#competition">Competition</a><a href="#valuation">Valuation</a><a href="#risks">Catalysts & risks</a><a href="#sources">Sources</a>
+        </nav>
+        <div class="rail-card"><span class="label">Rating</span><strong>HOLD</strong><small>12-month target $90<br>Speculative buy below $75</small></div>
+      </aside>
+
+      <main>
+        <header class="mast">
+          <div class="kicker"><span>EQUITY RESEARCH · CONSUMER / GAMING</span><span>19 SEPTEMBER 2026</span></div>
+          <h1>Luxury franchise, leveraged inflection.</h1>
+          <p class="deck">Wynn’s premier resorts still produce attractive property economics. But the next leg of value rests on a geopolitically exposed UAE build while Macau softness, heavy capex and a 2027–29 maturity wall narrow the margin for error.</p>
+          <div class="verdict-band" aria-label="Investment summary">
+            <div><span>Recommendation</span><strong class="call">HOLD</strong></div>
+            <div><span>Price · Sept 18 close</span><strong>$81.68</strong></div>
+            <div><span>12-month target</span><strong>$90.00</strong></div>
+            <div><span>Implied price upside</span><strong class="up">+10.2%</strong></div>
+          </div>
+          <p class="note" style="margin-top:10px">Market data fetched Sept. 19, 2026. The target and valuation assumptions are this report’s analytical estimates, not company guidance.</p>
+        </header>
+
+        <section id="view">
+          <div class="section-head"><div class="section-no">01 · THE VIEW</div><div><h2>A strong asset base, priced for uncertainty</h2></div></div>
+          <p class="lead">At roughly 7.8× trailing property EBITDAR, Wynn is not expensive. Yet the discount is earned: net leverage is roughly 4–4.4×, Macau supplies about half of group earnings, and the $5.1B Al Marjan project has already absorbed a $600M cost increase and a delay.</p>
+          <div class="grid-3">
+            <article class="card thesis"><span class="label">The quality</span><h3>Scarce, high-end resort assets</h3><p>Wynn Las Vegas generated a 35.1% property EBITDAR margin in 2025, the group’s best. Across markets, the brand monetizes premium rooms, gaming, dining and entertainment in one controlled ecosystem.</p></article>
+            <article class="card thesis watch"><span class="label">The swing factor</span><h3>UAE can change the earnings base</h3><p>Management guides to $390–570M of stabilized property EBITDA at Al Marjan. Wynn owns 40%; regulatory first-mover status is powerful, but timing and construction risk have risen.</p></article>
+            <article class="card thesis risk"><span class="label">The constraint</span><h3>Balance-sheet flexibility</h3><p>Debt totaled about $10.7B at June 2026. Large maturities in 2027–29 overlap with UAE funding and a $900–950M Macau expansion.</p></article>
+          </div>
+          <div class="snapshot" aria-label="Market snapshot">
+            <div><strong>$9.03B</strong><span>market capitalization <sup><a class="source" href="#src-market">[1]</a></sup></span></div>
+            <div><strong>19.6×</strong><span>trailing P/E, reported</span></div>
+            <div><strong>~7.8×</strong><span>estimated EV / trailing property EBITDAR</span></div>
+            <div><strong>1.2%</strong><span>annualized dividend yield</span></div>
+          </div>
+          <div class="callout"><strong>Investment conclusion:</strong> The current price offers a more balanced setup than consensus targets imply. Our three-method work centers on the high-$80s; risk-adjusted upside is not yet large enough for a Buy. We would become constructive below $75 if the UAE timeline and Macau cash generation remain intact.</div>
+        </section>
+
+        <section id="business">
+          <div class="section-head"><div class="section-no">02 · BUSINESS</div><div><h2>Four resorts fund the next one</h2></div></div>
+          <div class="grid-2">
+            <div class="card">
+              <h3>2025 revenue by property</h3>
+              <div class="bar-list" aria-label="Revenue by property in millions of dollars">
+                <div class="bar-row"><span>Wynn Las Vegas</span><div class="track"><div class="fill" style="width:100%"></div></div><strong>$2.57B</strong></div>
+                <div class="bar-row"><span>Wynn Palace</span><div class="track"><div class="fill orange" style="width:89.7%"></div></div><strong>$2.31B</strong></div>
+                <div class="bar-row"><span>Wynn Macau</span><div class="track"><div class="fill orange" style="width:54.8%"></div></div><strong>$1.41B</strong></div>
+                <div class="bar-row"><span>Encore Boston</span><div class="track"><div class="fill green" style="width:32.9%"></div></div><strong>$0.85B</strong></div>
+              </div>
+              <p class="chart-caption">Company-reported FY2025 revenue. Macau properties in orange. <a class="source" href="#src-10k">10-K</a></p>
+            </div>
+            <div class="card">
+              <h3>Revenue engine</h3>
+              <p class="num">61.8%</p><p>of FY2025 group revenue came from casino operations. Rooms contributed $1.14B, food & beverage $1.04B, and entertainment, retail and other $549M.</p>
+              <p class="note">The gaming skew supports high margins in favorable hold environments—but also makes quarterly results more volatile and exposes Macau to premium-mass/VIP conditions.</p>
+            </div>
+          </div>
+          <table class="product-table" aria-label="Property segment performance">
+            <thead><tr><th>Property</th><th>2025 revenue</th><th>Adj. property EBITDAR</th><th>Margin</th><th>Strategic role</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Property">Wynn Palace</td><td data-label="Revenue">$2,307M</td><td data-label="EBITDAR">$683M</td><td data-label="Margin">29.6%</td><td data-label="Role">Cotai flagship; premium-mass / VIP</td></tr>
+              <tr><td data-label="Property">Wynn Macau</td><td data-label="Revenue">$1,411M</td><td data-label="EBITDAR">$402M</td><td data-label="Margin">28.5%</td><td data-label="Role">Peninsula luxury anchor</td></tr>
+              <tr><td data-label="Property">Las Vegas</td><td data-label="Revenue">$2,573M</td><td data-label="EBITDAR">$902M</td><td data-label="Margin">35.1%</td><td data-label="Role">Highest-margin cash generator</td></tr>
+              <tr><td data-label="Property">Encore Boston</td><td data-label="Revenue">$847M</td><td data-label="EBITDAR">$237M</td><td data-label="Margin">28.0%</td><td data-label="Role">Stable regional cash flow</td></tr>
+            </tbody>
+          </table>
+          <p class="chart-caption">Totals may differ by rounding. Adjusted Property EBITDAR is management’s property-level non-GAAP measure. <a class="source" href="#src-10k">Source: FY2025 10-K</a>.</p>
+
+          <div class="grid-2" style="margin-top:25px">
+            <article class="card"><h3>Product quality</h3><p>Las Vegas combines 4,748 rooms and villas, a 194,000 sq ft casino, 21 dining experiences, 513,000 sq ft of meeting space, retail, nightlife and an 18-hole golf course. This breadth supports premium occupancy and wallet share without relying on a single amenity.</p><p class="note">Encore Boston offers 671 rooms, a 211,000 sq ft casino and waterfront public realm; Wynn’s two Macau assets combine more than 2,700 rooms by company disclosure and derivation. <a class="source" href="#src-company">Company newsroom</a></p></article>
+            <article class="card"><h3>What is no longer the story</h3><p>WynnBET is effectively wound down. Management exited most US online-sports-betting and iGaming states after concluding that customer-acquisition spending overwhelmed likely returns. Interactive is not part of our valuation case.</p><p class="note"><a class="source" href="#src-wynnbet">WynnBET cessation sources</a></p></article>
+          </div>
+          <div class="grid-2" style="margin-top:22px">
+            <div class="card"><h3>Moat assessment</h3><div class="moat-score">
+              <div class="score-row"><span>Brand / service</span><div class="score-track"><i style="width:90%"></i></div><b>9/10</b></div>
+              <div class="score-row"><span>Asset scarcity</span><div class="score-track"><i style="width:85%"></i></div><b>8.5</b></div>
+              <div class="score-row"><span>Pricing power</span><div class="score-track"><i style="width:75%"></i></div><b>7.5</b></div>
+              <div class="score-row"><span>Balance sheet</span><div class="score-track"><i style="width:40%"></i></div><b>4/10</b></div>
+              <div class="score-row"><span>Regulatory durability</span><div class="score-track"><i style="width:65%"></i></div><b>6.5</b></div>
+            </div><p class="chart-caption">Qualitative analyst scoring, not company-reported data.</p></div>
+            <div class="card"><h3>Our moat view</h3><p><strong>Narrow, with unusually valuable assets.</strong> Wynn’s advantage is not low cost; it is a hard-to-replicate combination of location, license, brand and service density. The moat is strongest in Las Vegas and potentially the UAE.</p><p>It is less durable in Macau, where the concession framework, mandatory non-gaming investment and six-operator field limit strategic freedom. Capital intensity also means that maintaining the brand continuously consumes cash.</p></div>
+          </div>
+        </section>
+
+        <section id="financials">
+          <div class="section-head"><div class="section-no">03 · FINANCIALS</div><div><h2>Revenue held; earnings softened</h2></div></div>
+          <div class="financial-strip" aria-label="FY2025 financial summary">
+            <div><span class="label">Revenue</span><strong>$7.14B</strong><span class="delta-pos">roughly flat YoY</span></div>
+            <div><span class="label">Property EBITDAR</span><strong>$2.22B</strong><span class="delta-neg">−$141M YoY</span></div>
+            <div><span class="label">Net income</span><strong>$327M</strong><span class="delta-neg">−34.7% YoY</span></div>
+            <div><span class="label">Adj. EPS</span><strong>$4.19</strong><span class="delta-neg">vs $6.02</span></div>
+            <div><span class="label">Free cash flow</span><strong>$692M</strong><span class="delta-neg">vs $1.01B</span></div>
+          </div>
+          <div class="grid-2">
+            <div class="chart-card">
+              <div class="chart-title"><div><strong>One-year share-price reset</strong><div class="note">Month-end closes; Sept. 2026 through Sept. 18</div></div><div><span class="label">Last</span><strong>$81.68</strong></div></div>
+              <svg id="priceChart" viewBox="0 0 680 330" role="img" aria-label="Wynn share price declined from 128.27 dollars on September 30 2025 to 81.68 dollars on September 18 2026"></svg>
+              <p class="chart-caption">Source: market-data series fetched Sept. 19, 2026. The reported one-year return was −36.9%. <a class="source" href="#src-market">[1]</a></p>
+            </div>
+            <div class="card">
+              <h3>Q2 2026: operating progress, not a clean beat</h3>
+              <p><span class="num">$1.86B</span> revenue, up 6.9% year over year; adjusted property EBITDAR rose to $568.3M. Net income more than doubled to $140.1M.</p>
+              <div class="bar-list">
+                <div class="bar-row"><span>Wynn Palace</span><div class="track"><div class="fill orange" style="width:92%"></div></div><strong>30.8%</strong></div>
+                <div class="bar-row"><span>Las Vegas</span><div class="track"><div class="fill" style="width:100%"></div></div><strong>33.5%</strong></div>
+                <div class="bar-row"><span>Wynn Macau</span><div class="track"><div class="fill orange" style="width:81%"></div></div><strong>27.2%</strong></div>
+                <div class="bar-row"><span>Boston</span><div class="track"><div class="fill green" style="width:80%"></div></div><strong>26.8%</strong></div>
+              </div>
+              <p class="chart-caption">Q2 property EBITDAR margins. <a class="source" href="#src-q2">Q2 release</a></p>
+            </div>
+          </div>
+          <div class="grid-2" style="margin-top:22px">
+            <div class="card"><span class="label">Balance sheet</span><h3 style="margin-top:5px">Debt is manageable—but dictates the pace</h3><p>Total debt was about $10.72B at June 30, 2026, with $1.57B of cash. Management-defined net leverage was about 4.4× in Q1; the exact ratio varies with cash, lease and EBITDA definitions.</p><p>The 2027, 2028 and 2029 principal buckets were $2.86B, $2.54B and $1.79B at year-end 2025. A reported $900M 2035 notes offering launched Sept. 10, 2026 seeks to extend the wall, but terms were not verified in an SEC filing for this note.</p></div>
+            <div class="card"><span class="label">Capital allocation</span><h3 style="margin-top:5px">Returns continue despite the build cycle</h3><p>The $0.25 quarterly dividend implies a 1.2% yield at the reference price. Wynn repurchased $358M of stock in 2025 and about $129M in the first half of 2026, leaving $326M authorized at June 30.</p><p>That support is useful, but every buyback dollar competes with Al Marjan equity, Enclave capex and refinancing. We prefer opportunistic—not automatic—repurchases until project risk declines.</p></div>
+          </div>
+          <div class="waterfall" aria-label="Year end 2025 debt maturity profile">
+            <div><strong>$2.86B</strong><span>2027</span></div><div><strong>$2.54B</strong><span>2028</span></div><div><strong>$1.79B</strong><span>2029</span></div><div><strong>$0.64B</strong><span>2030</span></div><div><strong>$2.80B</strong><span>THEREAFTER</span></div>
+          </div>
+          <p class="chart-caption">Principal maturities at Dec. 31, 2025; excludes $9M due in 2026. The 2027 bucket includes convertible bonds redeemable at holder option on March 7, 2027. <a class="source" href="#src-10k">10-K</a></p>
+        </section>
+
+        <section id="growth">
+          <div class="section-head"><div class="section-no">04 · GROWTH</div><div><h2>The UAE is the fulcrum</h2></div></div>
+          <div class="project-hero">
+            <div><span class="label" style="color:#ffb795">WYNN AL MARJAN ISLAND · RAS AL KHAIMAH</span><h3>The first licensed integrated resort in the UAE</h3><p>A 40%-owned joint venture on a 62-hectare island, carrying a 15-year renewable gaming license exclusive to Ras Al Khaimah. The physical proposition is formidable; the valuation question is whether the cost, geopolitical exposure and time-to-stabilization still produce the guided return.</p><p class="note" style="color:#bdceda"><a style="color:#ffd1bd" class="source" href="#src-uae">UAE project sources</a></p></div>
+            <div class="project-stats"><div><strong>$5.1B</strong><span>TOTAL BUDGET</span></div><div><strong>Sept. 2027</strong><span>GUIDED OPENING</span></div><div><strong>1,530</strong><span>ROOMS / SUITES / VILLAS</span></div><div><strong>$390–570M</strong><span>STABILIZED EBITDA GUIDE</span></div></div>
+          </div>
+          <div class="timeline" aria-label="Growth project timeline">
+            <article class="event"><time>October 2024</time><h3>Gaming license granted</h3><p>UAE’s first commercial gaming license; 15-year exclusivity for Ras Al Khaimah, renewable.</p></article>
+            <article class="event"><time>Q4 2025</time><h3>Tower tops out</h3><p>Construction advances with more than 22,000 workers on site. By December, 67% of project cost was spent or contracted.</p></article>
+            <article class="event"><time>August 2026</time><h3>Budget and timing reset</h3><p>Company discloses a $600M cost increase and shifts opening to September 2027, citing regional conflict and supply-chain disruption.</p></article>
+            <article class="event"><time>September 2027</time><h3>Target opening</h3><p>Initial scale: 275 tables, more than 2,000 gaming machines, 22–24 restaurants and lounges, 120,000 sq ft of luxury retail, private beach and events space.</p></article>
+            <article class="event"><time>Early 2029</time><h3>Enclave at Wynn Palace</h3><p>Targeted completion for the $900–950M, 432-suite non-gaming expansion. Company guide: $150–175M of annual EBITDA on roughly $400M of revenue.</p></article>
+          </div>
+          <div class="grid-3" style="margin-top:27px">
+            <div class="card"><span class="label">UAE bull case</span><h3>First-mover economics</h3><p>Wynn models $1.0–1.66B of gross gaming revenue and a 16.7–34.3% return on Wynn equity at stabilization. Even the midpoint could add a meaningful new earnings stream.</p></div>
+            <div class="card"><span class="label">UAE bear case</span><h3>Another reset</h3><p>More delay or cost inflation would hit the project twice: lower present value and more equity cash required, while Wynn guarantees the $2.4B project debt facility.</p></div>
+            <div class="card"><span class="label">Portfolio option</span><h3>70-acre land bank</h3><p>Additional RAK land creates room for a second phase, but we assign it no value until the first resort opens and economics are demonstrated.</p></div>
+          </div>
+        </section>
+
+        <section id="competition">
+          <div class="section-head"><div class="section-no">05 · COMPETITION</div><div><h2>Premium positioning, local battles</h2></div></div>
+          <div class="competition" role="table" aria-label="Competitive positioning by market">
+            <div class="comp-row head" role="row"><div>Market</div><div>Wynn position</div><div>Competitive pressure</div></div>
+            <div class="comp-row" role="row"><div>Las Vegas</div><div>Ultra-luxury leader; 35.1% 2025 property margin and high-end room, dining and gaming mix.</div><div>MGM and Caesars dominate scale. Wynn must sustain premium spend as visitation fluctuates.</div></div>
+            <div class="comp-row" role="row"><div>Macau</div><div>About 13% GGR share in Q3 2025; premium-mass/VIP skew can lift margins when hold normalizes.</div><div>Sands China and Galaxy lead share; MGM China, Melco and SJM widen the six-license field.</div></div>
+            <div class="comp-row" role="row"><div>Boston</div><div>Destination resort with stable regional economics and 28.0% 2025 margin.</div><div>MGM Springfield and slots-only Plainridge Park compete for regional wallets.</div></div>
+            <div class="comp-row" role="row"><div>UAE</div><div>Sole operating license and likely first mover “for quite some time.”</div><div>MGM has formally applied; Wynn assumes two eventual rivals in a $3–5B UAE GGR market.</div></div>
+          </div>
+          <p class="chart-caption">Macau share sourced to CreditSights/Citi/CLSA reporting; UAE market and rival expectations sourced to company/industry reporting. Precise property-level ADR/RevPAR peer comparisons were not verified. <a class="source" href="#src-competition">Competition sources</a></p>
+        </section>
+
+        <section id="valuation">
+          <div class="section-head"><div class="section-no">06 · VALUATION</div><div><h2>Three lenses point to the high-$80s</h2></div></div>
+          <p class="lead">We separate reported inputs from our assumptions. The outcome is most sensitive to the multiple investors will pay for existing resorts and to the terminal cash-flow discount rate—not to heroic value for undeveloped land.</p>
+          <div class="controls" role="group" aria-label="Valuation scenario">
+            <button type="button" data-scenario="bear" aria-pressed="false">Bear</button>
+            <button type="button" data-scenario="base" aria-pressed="true">Base</button>
+            <button type="button" data-scenario="bull" aria-pressed="false">Bull</button>
+          </div>
+          <div class="scenario-panel" aria-live="polite">
+            <div class="scenario-top"><div><span class="label" id="scenarioLabel">BASE CASE</span><h3 id="scenarioTitle">Execution improves, but the discount persists</h3><p id="scenarioText">Core property EBITDAR stabilizes near today’s run-rate; the market gives partial credit to UAE and Enclave, while leverage declines only gradually.</p></div><div class="scenario-price"><span class="label">Scenario value / share</span><strong id="scenarioPrice">$89</strong><span id="scenarioUpside">+9% vs. $81.68</span></div></div>
+            <div class="assumptions"><div><span>Normalized core EBITDAR</span><strong id="scenarioEbitdar">$2.30B</strong></div><div><span>Core EV / EBITDAR</span><strong id="scenarioMultiple">8.0×</strong></div><div><span>Net debt used</span><strong id="scenarioDebt">$8.75B</strong></div></div>
+          </div>
+
+          <div class="valuation-grid">
+            <article class="model"><span class="label">Method 1 · Trading multiple</span><div class="value" id="multipleValue">$88</div><p>8.0× normalized $2.30B property EBITDAR less $8.75B net debt, divided by an estimated 110M shares.</p><small>Simple and transparent; does not separately reward development value.</small></article>
+            <article class="model"><span class="label">Method 2 · SOTP</span><div class="value">$89</div><p>9× Vegas, 8× Macau, 7× Boston, plus risk-adjusted net present value for UAE and Enclave, less net debt and a corporate reserve.</p><small>Our assumptions. UAE uses 40% of midpoint guided EBITDA, discounted to stabilization and net of remaining estimated equity.</small></article>
+            <article class="model"><span class="label">Method 3 · FCFE</span><div class="value">$87</div><p>Illustrative 2026–30 equity cash flow of $720M, $680M, $850M, $950M and $1.0B; 11.5% cost of equity and 2.5% terminal growth.</p><small>Our forecast, anchored to FY2025 free cash flow of $692M. No debt subtraction because this is cash flow to equity.</small></article>
+          </div>
+          <div class="callout"><strong>Blended fair value: $88.</strong> We round the 12-month objective to <strong>$90</strong> to reflect modest cash generation and the dividend over the next year. That sits far below the $133.35 sell-side average target reported across 20 analysts, which we view as too optimistic for the current risk budget. <a class="source" href="#src-analysts">Analyst targets</a></div>
+
+          <div class="grid-2" style="margin-top:23px">
+            <div class="card"><h3>FCFE sensitivity · value per share</h3><table class="sensitivity" aria-label="FCFE valuation sensitivity by cost of equity and terminal growth">
+              <thead><tr><th>Cost of equity ↓ / g →</th><th>2.0%</th><th>2.5%</th><th>3.0%</th></tr></thead><tbody>
+                <tr><th>10.5%</th><td>$94</td><td>$99</td><td>$104</td></tr>
+                <tr><th>11.5%</th><td>$84</td><td class="base-cell">$87</td><td>$91</td></tr>
+                <tr><th>12.5%</th><td>$76</td><td>$78</td><td>$81</td></tr>
+              </tbody></table><p class="chart-caption">Calculated from the five-year FCFE path above, an estimated 110M shares and the stated rates. Rounded to nearest dollar.</p></div>
+            <div class="card"><h3>Probability-weighted range</h3><div class="bar-list">
+              <div class="bar-row"><span>Bear · 25%</span><div class="track"><div class="fill" style="width:44.7%;background:var(--red)"></div></div><strong>$55</strong></div>
+              <div class="bar-row"><span>Base · 50%</span><div class="track"><div class="fill orange" style="width:72.4%"></div></div><strong>$89</strong></div>
+              <div class="bar-row"><span>Bull · 25%</span><div class="track"><div class="fill green" style="width:100%"></div></div><strong>$123</strong></div>
+            </div><p class="num" style="margin-top:28px">$89</p><p class="note">Weighted value = 25% × $55 + 50% × $89 + 25% × $123 = $89. Our $90 target is the rounded 12-month expression.</p></div>
+          </div>
+          <details><summary>Valuation bridge and assumptions</summary><p><strong>Trading-multiple scenarios:</strong> Bear: 7× $2.15B normalized core EBITDAR less $9.0B net debt; Base: 8× $2.30B less $8.75B; Bull: 9× $2.45B less $8.5B. All divide by an estimated 110M shares.</p><p><strong>SOTP base:</strong> Wynn Las Vegas $8.12B (9× $902M), Macau $8.68B (8× $1.085B), Boston $1.66B (7× $237M). Development value adds roughly $0.55B after discounting the UAE and Enclave guided midpoint economics to stabilization and deducting remaining investment; a $0.50B corporate reserve and $8.75B net debt are deducted. Rounding yields about $89 per share.</p><p><strong>Why no value for extra UAE land?</strong> Optionality is real but unseasoned. The model assigns zero until operating performance and the regulatory market are visible.</p></details>
+        </section>
+
+        <section id="risks">
+          <div class="section-head"><div class="section-no">07 · CATALYSTS & RISKS</div><div><h2>What changes the call</h2></div></div>
+          <div class="grid-2">
+            <div><h3 style="margin-bottom:14px">Catalysts</h3><div class="catalyst-list">
+              <div class="catalyst"><div><strong>UAE de-risking</strong><span class="note">On-time milestones, stable regional logistics and no further budget reset.</span></div></div>
+              <div class="catalyst"><div><strong>Macau recovery</strong><span class="note">Premium-mass demand and normal hold restore property margins.</span></div></div>
+              <div class="catalyst"><div><strong>Vegas resilience</strong><span class="note">Convention and event demand sustain the May 2026 record-month momentum.</span></div></div>
+              <div class="catalyst"><div><strong>Refinancing progress</strong><span class="note">Extending the 2027–29 wall lowers the equity risk premium.</span></div></div>
+              <div class="catalyst"><div><strong>Capital returns</strong><span class="note">Buybacks below intrinsic value become accretive if project funding stays secure.</span></div></div>
+            </div></div>
+            <div><h3 style="margin-bottom:14px">Principal risks</h3><div class="risk-matrix">
+              <article class="risk-item"><span class="risk-rank">1</span><div><h3>UAE execution</h3><p>Conflict has already raised cost and delayed opening; further disruption threatens both NPV and funding.</p></div></article>
+              <article class="risk-item"><span class="risk-rank">2</span><div><h3>Leverage</h3><p>Large maturities, roughly $626M of annual interest and overlapping capex constrain flexibility.</p></div></article>
+              <article class="risk-item"><span class="risk-rank">3</span><div><h3>Macau / China</h3><p>About 52% of revenue, premium gaming volatility, macro sensitivity and mandated non-gaming spend.</p></div></article>
+              <article class="risk-item"><span class="risk-rank">4</span><div><h3>Las Vegas cycle</h3><p>High-end demand and group travel remain sensitive to consumer and corporate confidence.</p></div></article>
+            </div></div>
+          </div>
+          <div class="grid-3" style="margin-top:24px">
+            <div class="card"><span class="label">Upgrade to Buy</span><h3 style="margin-top:5px">Below $75</h3><p>Assuming Al Marjan remains on schedule, leverage does not deteriorate and core EBITDAR holds above $2.2B.</p></div>
+            <div class="card"><span class="label">Hold thesis intact</span><h3 style="margin-top:5px">$75–100</h3><p>Risk and reward remain balanced while investors await clearer project and Macau evidence.</p></div>
+            <div class="card"><span class="label">Trim / avoid</span><h3 style="margin-top:5px">Above $105</h3><p>Unless operating estimates rise or UAE reaches a material de-risking milestone.</p></div>
+          </div>
+        </section>
+
+        <section>
+          <div class="decision"><div><span class="label" style="color:#ffb795">FINAL RECOMMENDATION</span><h2>Hold. Watch the build, not the headlines.</h2><p>Wynn owns exceptional resorts and a credible new-market advantage. At $81.68, though, the shares offer only modest upside to our $90 target against a wide $55–123 scenario range. Existing holders can stay for the UAE option; new capital should demand a larger margin of safety.</p></div><div class="decision-box"><span>12-MONTH PRICE TARGET</span><strong>$90</strong><p>~10% price upside<br>~11% total return incl. dividend</p></div></div>
+        </section>
+
+        <section id="sources">
+          <div class="section-head"><div class="section-no">08 · SOURCES & NOTES</div><div><h2>Primary evidence first</h2></div></div>
+          <ol class="sources">
+            <li id="src-market"><strong>Market-data snapshot</strong> — WYNN price history and company metrics fetched Sept. 19, 2026; summarized from the research dataset. Market cap and 52-week range corroborated by Finnhub in the research.</li>
+            <li id="src-10k"><a href="https://www.sec.gov/Archives/edgar/data/1174922/000117492226000013/wynn-20251231.htm"><strong>Wynn Resorts FY2025 Form 10-K</strong></a> — segment results, debt, maturities, capital returns and concession disclosures.</li>
+            <li id="src-q2"><a href="https://www.prnewswire.com/news-releases/wynn-resorts-limited-reports-second-quarter-2026-results-302842811.html"><strong>Q2 2026 earnings release</strong></a> — quarterly financial and property performance.</li>
+            <li><a href="https://prconnect.thestreet.com/article/Wynn-Resorts-Limited-Reports-First-Quarter-2026-Results?storyId=69fcf01cd56b553ce63b4736"><strong>Q1 2026 earnings release</strong></a> — earnings, project contributions and outlook.</li>
+            <li id="src-company"><a href="https://www.newsroom.wynnresorts.com/en/wynnpalace/wynn-resorts-macau-signs-10-year-gaming-concession-agreement/s/09d0dfa1-e5a9-4019-b0e7-9cf110bbda2b"><strong>Wynn Resorts newsroom</strong></a> — Macau concession agreement; property descriptions cross-checked against company materials.</li>
+            <li id="src-uae"><a href="https://cdcgaming.com/wynn-compares-al-marjan-island-project-to-las-vegas/"><strong>CDC Gaming · Al Marjan</strong></a> and <a href="https://www.agbi.com/leisure-hospitality/2025/08/wynn-projects-multi-billion-dollar-windfall-as-uaes-only-casino/">AGBI</a> — project scale and guided economics.</li>
+            <li><a href="https://www.ggrasia.com/new-us950mln-hotel-tower-at-wynn-palace-in-macau-modest-delay-at-wynn-al-marjan-billings"><strong>GGRAsia · Enclave and Al Marjan</strong></a> — project cost, timing and management commentary.</li>
+            <li id="src-competition"><a href="https://agbrief.com/news/macau/10/11/2025/premium-segment-lifts-wynn-macaus-3q25-results-despite-non-gaming-weakness-creditsights/"><strong>AGBrief / CreditSights</strong></a> and <a href="https://www.ggrasia.com/clsa-thinks-macau-3q-casino-ebitda-up-10pct-y-o-y-and-wynn-biggest-ggr-share-gainer-q-o-q">GGRAsia / CLSA</a> — Macau positioning and market share.</li>
+            <li id="src-analysts"><a href="https://marketbeat.com/stocks/NASDAQ/WYNN/forecast/"><strong>MarketBeat analyst consensus</strong></a> — rating distribution and target range; individual firm targets are aggregator-sourced.</li>
+            <li><a href="https://www.ggrasia.com/wynn-outlook-clouded-by-macau-softness-middle-east-tensions-jp-morgan"><strong>GGRAsia · JPMorgan</strong></a> — Macau softness, UAE risk and valuation commentary.</li>
+            <li id="src-wynnbet"><a href="https://www.sportsbettingdime.com/news/industry/wynnbet-will-cease-online-sports-betting-igaming-operations-in-eight-states/"><strong>Sports Betting Dime · WynnBET wind-down</strong></a> and <a href="https://massgaming.com/wp-content/uploads/Wynn-Sports-Interactive-WynnBet-License-Decision-Final.pdf">Massachusetts Gaming Commission</a>.</li>
+            <li><a href="https://www.newsroom.wynnresorts.com/en/wynnmayfair/press-releases/wynn-resorts-opens-wynn-mayfair/s/59cc6e0d-97e1-4351-834b-1444a71b808c"><strong>Wynn Mayfair announcement</strong></a> — June 2025 acquisition and club profile.</li>
+          </ol>
+          <div class="method"><strong>Methodology & limitations.</strong> Financial figures are company-reported unless marked estimated. Enterprise value uses reported debt less cash and short-term investments; lease-inclusive definitions produce a higher figure. Share count (~110M) is inferred from market capitalization and price and was not independently confirmed from a filing; this is the main per-share-model limitation. Wynn Palace’s current room count (~1,700) is derived from the company’s statement that the 432-suite Enclave adds 25%. Q3 2026 had not been reported. The Sept. 10 notes offering and some debt details were secondary-source items not independently verified in an SEC filing. All valuation multiples, forecast cash flows, discount rates, scenario probabilities, moat scores and recommendation thresholds are the author’s analytical assumptions.</div>
+          <p class="disclaimer">For informational purposes only; not personalized investment advice. Equity values can fall materially, and casino operators are cyclical, capital intensive and exposed to regulatory, financing and geopolitical risks. Past performance does not predict future results.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script>
+    const PRICE_DATA=[
+      {date:'Sep 25',value:128.27},{date:'Oct',value:118.99},{date:'Nov',value:128.68},{date:'Dec',value:120.33},
+      {date:'Jan 26',value:107.45},{date:'Feb',value:108.19},{date:'Mar',value:101.55},{date:'Apr',value:107.11},
+      {date:'May',value:101.22},{date:'Jun',value:97.09},{date:'Jul',value:99.31},{date:'Aug',value:91.28},{date:'Sep 18',value:81.68}
+    ];
+    const svg=document.getElementById('priceChart');
+    const NS='http://www.w3.org/2000/svg',W=680,H=330,p={l:55,r:22,t:22,b:47};
+    const vals=PRICE_DATA.map(d=>d.value), min=Math.floor(Math.min(...vals)/10)*10, max=Math.ceil(Math.max(...vals)/10)*10;
+    const x=i=>p.l+i*(W-p.l-p.r)/(PRICE_DATA.length-1), y=v=>p.t+(max-v)*(H-p.t-p.b)/(max-min);
+    const add=(name,attrs,text)=>{const e=document.createElementNS(NS,name);Object.entries(attrs||{}).forEach(([k,v])=>e.setAttribute(k,v));if(text)e.textContent=text;svg.appendChild(e);return e};
+    [80,90,100,110,120,130].filter(t=>t>=min&&t<=max).forEach(t=>{add('line',{x1:p.l,x2:W-p.r,y1:y(t),y2:y(t),stroke:'var(--faint)','stroke-width':'1'});add('text',{x:p.l-9,y:y(t)+4,'text-anchor':'end',fill:'var(--muted)','font-size':'11'},'$'+t)});
+    const area=`M ${x(0)} ${H-p.b} `+PRICE_DATA.map((d,i)=>`L ${x(i)} ${y(d.value)}`).join(' ')+` L ${x(PRICE_DATA.length-1)} ${H-p.b} Z`;
+    add('path',{d:area,fill:'var(--orange-soft)',opacity:'.75'});
+    add('polyline',{points:PRICE_DATA.map((d,i)=>`${x(i)},${y(d.value)}`).join(' '),fill:'none',stroke:'var(--orange)','stroke-width':'3','stroke-linejoin':'round','stroke-linecap':'round'});
+    PRICE_DATA.forEach((d,i)=>{if(i%2===0||i===PRICE_DATA.length-1)add('text',{x:x(i),y:H-20,'text-anchor':'middle',fill:'var(--muted)','font-size':'10'},d.date)});
+    const last=PRICE_DATA.at(-1);add('circle',{cx:x(PRICE_DATA.length-1),cy:y(last.value),r:'5',fill:'var(--orange)',stroke:'var(--paper)','stroke-width':'3'});add('text',{x:x(PRICE_DATA.length-1)-7,y:y(last.value)-12,'text-anchor':'end',fill:'var(--ink)','font-size':'13','font-weight':'700'},'$'+last.value.toFixed(2));
+
+    const scenarios={
+      bear:{label:'BEAR CASE',title:'Project slippage meets softer core earnings',text:'Macau and Las Vegas weaken, UAE requires more capital, and elevated net debt keeps the multiple compressed.',ebitdar:2.15,multiple:7,debt:9.0},
+      base:{label:'BASE CASE',title:'Execution improves, but the discount persists',text:'Core property EBITDAR stabilizes near today’s run-rate; the market gives partial credit to UAE and Enclave, while leverage declines only gradually.',ebitdar:2.30,multiple:8,debt:8.75},
+      bull:{label:'BULL CASE',title:'The UAE re-rates a resilient core',text:'Core properties expand, Al Marjan stays on the revised schedule and refinancing progress supports a premium multiple.',ebitdar:2.45,multiple:9,debt:8.5}
+    };
+    const shares=.110,current=81.68;
+    function setScenario(key){const s=scenarios[key],value=(s.ebitdar*s.multiple-s.debt)/shares,up=(value/current-1)*100;
+      document.querySelectorAll('[data-scenario]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scenario===key)));
+      document.getElementById('scenarioLabel').textContent=s.label;document.getElementById('scenarioTitle').textContent=s.title;document.getElementById('scenarioText').textContent=s.text;
+      document.getElementById('scenarioPrice').textContent='$'+Math.round(value);document.getElementById('scenarioUpside').textContent=(up>=0?'+':'')+Math.round(up)+'% vs. $81.68';
+      document.getElementById('scenarioEbitdar').textContent='$'+s.ebitdar.toFixed(2)+'B';document.getElementById('scenarioMultiple').textContent=s.multiple.toFixed(1)+'×';document.getElementById('scenarioDebt').textContent='$'+s.debt.toFixed(2)+'B';
+      if(key==='base')document.getElementById('multipleValue').textContent='$'+Math.round(value);
+    }
+    document.querySelectorAll('[data-scenario]').forEach(b=>b.addEventListener('click',()=>setScenario(b.dataset.scenario)));
+    setScenario('base');
+  </script>
+</body>
+</html>
