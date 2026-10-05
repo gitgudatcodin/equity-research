@@ -1,0 +1,853 @@
+{
+ "meta": {
+  "as_of": "2026-10-04",
+  "price_date": "2026-10-02",
+  "count": 56,
+  "verdicts_final": "The verdict/fair_value/price fields below are FINAL. Workers must reproduce them exactly.",
+  "no_version_labels": "Built PDFs must contain no references to prior reports, old targets, v2, addenda, or rebuilds."
+ },
+ "names": [
+  {
+   "ticker": "FUBO",
+   "company": "fuboTV Inc.",
+   "verdict": "BUY",
+   "fair_value": 33.0,
+   "price": 8.66,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/FUBO-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/fubo-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/fubo-research/valuation_output.json"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "TIGR",
+   "company": "UP Fintech Holding Ltd (Tiger Brokers)",
+   "verdict": "BUY",
+   "fair_value": 13.0,
+   "price": 4.16,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/TIGR-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "JD",
+   "company": "JD.com, Inc.",
+   "verdict": "BUY",
+   "fair_value": 55.0,
+   "price": 25.78,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/JD-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/jd-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/jd-research/valuation_output.json"
+    ]
+   },
+   "notes": "batch3_pdf shows an older $65 target; authoritative FV is $55."
+  },
+  {
+   "ticker": "WYNN",
+   "company": "Wynn Resorts, Limited",
+   "verdict": "BUY",
+   "fair_value": 153.0,
+   "price": 75.88,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/WYNN-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/wynn-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/wynn-rebuild/valuation_output.json"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "ADBE",
+   "company": "Adobe Inc.",
+   "verdict": "BUY",
+   "fair_value": 465.0,
+   "price": 237.69,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/ADBE-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "INTU",
+   "company": "Intuit Inc.",
+   "verdict": "BUY",
+   "fair_value": 535.0,
+   "price": 281.08,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/INTU-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/intu-research/valuation_output.json",
+     "/home/hatch/workspace/intu-research/valuation_output_v2.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "NKE",
+   "company": "NIKE, Inc.",
+   "verdict": "BUY",
+   "fair_value": 64.0,
+   "price": 33.87,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/NKE-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "TTD",
+   "company": "The Trade Desk, Inc.",
+   "verdict": "BUY",
+   "fair_value": 21.0,
+   "price": 11.95,
+   "risk_rating": "Medium-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/TTD-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/ttd-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "VICI",
+   "company": "VICI Properties Inc.",
+   "verdict": "BUY",
+   "fair_value": 39.0,
+   "price": 22.65,
+   "risk_rating": "Medium-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/VICI-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/vici-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/vici-research/valuation_output.json"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "PYPL",
+   "company": "PayPal Holdings, Inc.",
+   "verdict": "BUY",
+   "fair_value": 90.0,
+   "price": 52.8,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/PYPL-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/pypl-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "TME",
+   "company": "Tencent Music Entertainment Group",
+   "verdict": "BUY",
+   "fair_value": 13.0,
+   "price": 7.74,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/TME-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/tme-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "SE",
+   "company": "Sea Limited",
+   "verdict": "BUY",
+   "fair_value": 149.0,
+   "price": 95.19,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/SE-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/amzn-research/valuation_output.json",
+     "/home/hatch/workspace/aph-research/valuation_output.json",
+     "/home/hatch/workspace/arm-research/valuation_output.json",
+     "/home/hatch/workspace/arm-research/valuation_output_v2.json",
+     "/home/hatch/workspace/avgo-research/valuation_output.json",
+     "/home/hatch/workspace/axp-research-v2/valuation_output.json",
+     "/home/hatch/workspace/axp-research/valuation_output.json",
+     "/home/hatch/workspace/baba-research/valuation_output.json",
+     "/home/hatch/workspace/blbd-research/valuation_output.json",
+     "/home/hatch/workspace/cdns-research/valuation_output.json",
+     "/home/hatch/workspace/coin-research/valuation_output.json",
+     "/home/hatch/workspace/coin-research/valuation_output_v2.json",
+     "/home/hatch/workspace/exe-research/valuation_output.json",
+     "/home/hatch/workspace/fubo-research/valuation_output.json",
+     "/home/hatch/workspace/grbk-research/valuation_output.json",
+     "/home/hatch/workspace/grbk-research/valuation_output_v2.json",
+     "/home/hatch/workspace/ibm-research/valuation_output.json",
+     "/home/hatch/workspace/intu-research/valuation_output.json",
+     "/home/hatch/workspace/intu-research/valuation_output_v2.json",
+     "/home/hatch/workspace/jd-research/valuation_output.json",
+     "/home/hatch/workspace/kgc-research/valuation_output.json",
+     "/home/hatch/workspace/lite-research/valuation_output.json",
+     "/home/hatch/workspace/meli-research/valuation_output.json",
+     "/home/hatch/workspace/nrg-research/valuation_output.json",
+     "/home/hatch/workspace/nvda-research/valuation_output.json",
+     "/home/hatch/workspace/nvda-research/valuation_output_v2.json",
+     "/home/hatch/workspace/oxy-research/valuation_output.json",
+     "/home/hatch/workspace/pdd-research/valuation_output.json",
+     "/home/hatch/workspace/rgti-research/valuation_output.json",
+     "/home/hatch/workspace/rgti-research/valuation_output_v2.json",
+     "/home/hatch/workspace/rtx-research/valuation_output.json",
+     "/home/hatch/workspace/se-research/valuation_output.json",
+     "/home/hatch/workspace/se-research/valuation_output_v2.json",
+     "/home/hatch/workspace/shop-research/valuation_output.json",
+     "/home/hatch/workspace/shop-research/valuation_output_v2.json",
+     "/home/hatch/workspace/tme-research/valuation_output.json",
+     "/home/hatch/workspace/tmus-research/valuation_output.json",
+     "/home/hatch/workspace/tmus-research/valuation_output_v2.json",
+     "/home/hatch/workspace/vici-research/valuation_output.json",
+     "/home/hatch/workspace/vitl-research/valuation_output.json",
+     "/home/hatch/workspace/vitl-research/valuation_output_v2.json",
+     "/home/hatch/workspace/vst-research/valuation_output.json",
+     "/home/hatch/workspace/zm-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "NRG",
+   "company": "NRG Energy, Inc.",
+   "verdict": "BUY",
+   "fair_value": 143.0,
+   "price": 95.23,
+   "risk_rating": "Medium-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/NRG-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/nrg-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/nrg-research/valuation_output.json"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "RH",
+   "company": "RH",
+   "verdict": "BUY",
+   "fair_value": 177.0,
+   "price": 120.46,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/RH-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/rh-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "DKNG",
+   "company": "DraftKings Inc.",
+   "verdict": "BUY",
+   "fair_value": 27.0,
+   "price": 18.59,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/DKNG-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "PDD",
+   "company": "PDD Holdings Inc.",
+   "verdict": "BUY",
+   "fair_value": 108.0,
+   "price": 75.38,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/PDD-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/pdd-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "SOFI",
+   "company": "SoFi Technologies, Inc.",
+   "verdict": "BUY",
+   "fair_value": 22.5,
+   "price": 15.77,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/SOFI-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "FIS",
+   "company": "Fidelity National Information Services, Inc.",
+   "verdict": "BUY",
+   "fair_value": 45.0,
+   "price": 32.44,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/FIS-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "VITL",
+   "company": "Vital Farms, Inc.",
+   "verdict": "BUY",
+   "fair_value": 12.5,
+   "price": 9.06,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/VITL-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/vitl-research/valuation_output.json",
+     "/home/hatch/workspace/vitl-research/valuation_output_v2.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "BKNG",
+   "company": "Booking Holdings Inc.",
+   "verdict": "BUY",
+   "fair_value": 219.0,
+   "price": 159.02,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/BKNG-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "ZTS",
+   "company": "Zoetis Inc.",
+   "verdict": "BUY",
+   "fair_value": 95.0,
+   "price": 69.69,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/ZTS-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "EXE",
+   "company": "Expand Energy Corporation",
+   "verdict": "BUY",
+   "fair_value": 112.0,
+   "price": 85.52,
+   "risk_rating": "Medium-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/EXE-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/exe-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/exe-research/valuation_output.json"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "FISV",
+   "company": "Fiserv, Inc.",
+   "verdict": "BUY",
+   "fair_value": 58.0,
+   "price": 44.36,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/FISV-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/fiserv-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "TMUS",
+   "company": "T-Mobile US, Inc.",
+   "verdict": "BUY",
+   "fair_value": 205.0,
+   "price": 163.64,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/TMUS-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/tmus-research/valuation_output.json",
+     "/home/hatch/workspace/tmus-research/valuation_output_v2.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "BABA",
+   "company": "Alibaba Group Holding Limited",
+   "verdict": "HOLD",
+   "fair_value": 132.0,
+   "price": 105.85,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/BABA-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/baba-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/baba-research/valuation_output.json",
+     "/home/hatch/workspace/your_files/baba-equity-research/valuation_output.json"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "APP",
+   "company": "AppLovin Corporation",
+   "verdict": "HOLD",
+   "fair_value": 335.0,
+   "price": 268.22,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/APP-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "BULL",
+   "company": "Webull Corporation",
+   "verdict": "BUY",
+   "fair_value": 9.0,
+   "price": 7.34,
+   "risk_rating": "Medium-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/BULL-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/webull-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "META",
+   "company": "Meta Platforms, Inc.",
+   "verdict": "HOLD",
+   "fair_value": 880.0,
+   "price": 728.08,
+   "risk_rating": "Medium-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/META-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/meta-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "GRAB",
+   "company": "Grab Holdings Limited",
+   "verdict": "HOLD",
+   "fair_value": 3.4,
+   "price": 3.08,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/GRAB-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "PATH",
+   "company": "UiPath, Inc.",
+   "verdict": "HOLD",
+   "fair_value": 13.5,
+   "price": 13.12,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/PATH-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "IBM",
+   "company": "International Business Machines Corporation",
+   "verdict": "HOLD",
+   "fair_value": 223.0,
+   "price": 222.64,
+   "risk_rating": "Medium",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/IBM-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/ibm-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/ibm-research/valuation_output.json"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "CMCSA",
+   "company": "Comcast Corporation",
+   "verdict": "HOLD",
+   "fair_value": 21.0,
+   "price": 21.57,
+   "risk_rating": "Medium-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/CMCSA-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/comcast-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "NVDA",
+   "company": "NVIDIA Corporation",
+   "verdict": "HOLD",
+   "fair_value": 223.0,
+   "price": 233.95,
+   "risk_rating": "Med-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/NVDA-equity-research-note.pdf",
+    "addendum_c_pdf": "/home/hatch/workspace/polished-notes/sources/addendum_c/nvda-equity-research-note.pdf",
+    "model_json": "/home/hatch/workspace/your_files/nvda-equity-research/model.json",
+    "model_addendum_c_py": "/home/hatch/workspace/your_files/nvda-equity-research/model_addendum_c.py",
+    "valuation_output_json": [
+     "/home/hatch/workspace/nvda-research/valuation_output.json",
+     "/home/hatch/workspace/nvda-research/valuation_output_v2.json"
+    ]
+   },
+   "notes": "model.json + model_addendum_c.py + addendum_c_pdf are authoritative; standalone_pdf is STALE (pre-Addendum-C FV $186)."
+  },
+  {
+   "ticker": "HD",
+   "company": "The Home Depot, Inc.",
+   "verdict": "HOLD",
+   "fair_value": 268.0,
+   "price": 282.85,
+   "risk_rating": "Medium",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/HD-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/home-depot-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "SHOP",
+   "company": "Shopify Inc.",
+   "verdict": "HOLD",
+   "fair_value": 137.0,
+   "price": 151.39,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/SHOP-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/shop-research/valuation_output.json",
+     "/home/hatch/workspace/shop-research/valuation_output_v2.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "APH",
+   "company": "Amphenol Corporation",
+   "verdict": "REDUCE",
+   "fair_value": 78.0,
+   "price": 86.96,
+   "risk_rating": "Medium",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/APH-equity-research-note.pdf",
+    "addendum_c_pdf": "/home/hatch/workspace/polished-notes/sources/addendum_c/aph-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/aph-research/valuation_output.json",
+     "/home/hatch/workspace/your_files/aph-equity-research/valuation_output.json"
+    ]
+   },
+   "notes": "addendum_c_pdf is authoritative (FV $78); standalone_pdf is STALE (FV $55.53)."
+  },
+  {
+   "ticker": "SPGI",
+   "company": "S&P Global Inc.",
+   "verdict": "REDUCE",
+   "fair_value": 341.0,
+   "price": 386.27,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/SPGI-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "CDNS",
+   "company": "Cadence Design Systems, Inc.",
+   "verdict": "HOLD",
+   "fair_value": 308.0,
+   "price": 351.35,
+   "risk_rating": "Medium",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/CDNS-equity-research-note.pdf",
+    "batch3_pdf": "/home/hatch/workspace/polished-notes/sources/batch3/cdns-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/cdns-research/valuation_output.json"
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "CELH",
+   "company": "Celsius Holdings, Inc.",
+   "verdict": "REDUCE",
+   "fair_value": 23.0,
+   "price": 26.75,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/CELH-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/celsius-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "VST",
+   "company": "Vistra Corp.",
+   "verdict": "REDUCE",
+   "fair_value": 120.0,
+   "price": 140.02,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/VST-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/vst-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "AXP",
+   "company": "American Express Company",
+   "verdict": "REDUCE",
+   "fair_value": 250.0,
+   "price": 302.78,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/AXP-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/axp-research-v2/valuation_output.json",
+     "/home/hatch/workspace/axp-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "NFLX",
+   "company": "Netflix, Inc.",
+   "verdict": "SELL",
+   "fair_value": 48.0,
+   "price": 67.06,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/NFLX-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "AMZN",
+   "company": "Amazon.com, Inc.",
+   "verdict": "REDUCE",
+   "fair_value": 173.0,
+   "price": 251.52,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/AMZN-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/amzn-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "AVGO",
+   "company": "Broadcom Inc.",
+   "verdict": "REDUCE",
+   "fair_value": 235.0,
+   "price": 355.14,
+   "risk_rating": "Medium-High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/AVGO-equity-research-note.pdf",
+    "addendum_c_pdf": "/home/hatch/workspace/polished-notes/sources/addendum_c/broadcom-avgo-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/avgo-research/valuation_output.json"
+    ]
+   },
+   "notes": "addendum_c_pdf is authoritative (FV $235); standalone_pdf is STALE (FV $240)."
+  },
+  {
+   "ticker": "MELI",
+   "company": "MercadoLibre, Inc.",
+   "verdict": "REDUCE",
+   "fair_value": 1119.0,
+   "price": 1696.56,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/MELI-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/meli-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "RTX",
+   "company": "RTX Corporation",
+   "verdict": "SELL",
+   "fair_value": 120.0,
+   "price": 184.68,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/RTX-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/rtx-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "GRBK",
+   "company": "Green Brick Partners, Inc.",
+   "verdict": "SELL",
+   "fair_value": 41.0,
+   "price": 66.66,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/GRBK-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/grbk-research/valuation_output.json",
+     "/home/hatch/workspace/grbk-research/valuation_output_v2.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "COIN",
+   "company": "Coinbase Global, Inc.",
+   "verdict": "SELL",
+   "fair_value": 100.0,
+   "price": 183.0,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/COIN-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/coin-research/valuation_output.json",
+     "/home/hatch/workspace/coin-research/valuation_output_v2.json",
+     "/home/hatch/workspace/your_files/coin-equity-research/valuation_output.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "WHR",
+   "company": "Whirlpool Corporation",
+   "verdict": "SELL",
+   "fair_value": 16.0,
+   "price": 30.31,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/WHR-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/whirlpool-equity-research-note.pdf"
+   },
+   "notes": ""
+  },
+  {
+   "ticker": "MCD",
+   "company": "McDonald's Corporation",
+   "verdict": "REDUCE",
+   "fair_value": 122.0,
+   "price": 231.89,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/MCD-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "WCN",
+   "company": "Waste Connections, Inc.",
+   "verdict": "SELL",
+   "fair_value": 78.0,
+   "price": 153.82,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/WCN-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "DDOG",
+   "company": "Datadog, Inc.",
+   "verdict": "REDUCE",
+   "fair_value": 100.0,
+   "price": 277.22,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/DDOG-equity-research-note.pdf"
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "RGTI",
+   "company": "Rigetti Computing, Inc.",
+   "verdict": "SELL",
+   "fair_value": 5.0,
+   "price": 15.25,
+   "risk_rating": null,
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/RGTI-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/rgti-research/valuation_output.json",
+     "/home/hatch/workspace/rgti-research/valuation_output_v2.json"
+    ]
+   },
+   "notes": "No explicit risk rating found in source PDFs; assign from substance (Low/Medium/Medium-High/High)."
+  },
+  {
+   "ticker": "AMD",
+   "company": "Advanced Micro Devices, Inc.",
+   "verdict": "REDUCE",
+   "fair_value": 163.0,
+   "price": 633.91,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/AMD-equity-research-note.pdf",
+    "batch2_pdf": "/home/hatch/workspace/polished-notes/sources/batch2/amd-equity-research-note.pdf",
+    "addendum_c_pdf": "/home/hatch/workspace/polished-notes/sources/addendum_c/amd-equity-research-note.pdf",
+    "model_json": "/home/hatch/workspace/your_files/amd-equity-research/model.json",
+    "model_addendum_c_py": "/home/hatch/workspace/your_files/amd-equity-research/model_addendum_c.py"
+   },
+   "notes": "model.json + model_addendum_c.py + addendum_c_pdf are authoritative; standalone_pdf (FV $130) and batch2_pdf (FV $130) are STALE (pre-Addendum-C)."
+  },
+  {
+   "ticker": "LITE",
+   "company": "Lumentum Holdings, Inc.",
+   "verdict": "SELL",
+   "fair_value": 255.0,
+   "price": 1085.42,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/LITE-equity-research-note.pdf",
+    "addendum_c_pdf": "/home/hatch/workspace/polished-notes/sources/addendum_c/lumentum-lite-equity-research-note.pdf"
+   },
+   "notes": "addendum_c_pdf is authoritative (FV $255); standalone_pdf is STALE (FV $355)."
+  },
+  {
+   "ticker": "ARM",
+   "company": "Arm Holdings plc",
+   "verdict": "SELL",
+   "fair_value": 48.0,
+   "price": 307.49,
+   "risk_rating": "High",
+   "data_sources": {
+    "standalone_pdf": "/home/hatch/workspace/polished-notes/sources/standalone/ARM-equity-research-note.pdf",
+    "addendum_c_pdf": "/home/hatch/workspace/polished-notes/sources/addendum_c/arm-equity-research-note.pdf",
+    "valuation_output_json": [
+     "/home/hatch/workspace/arm-research/valuation_output.json",
+     "/home/hatch/workspace/arm-research/valuation_output_v2.json",
+     "/home/hatch/workspace/your_files/arm-equity-research/valuation_output.json"
+    ]
+   },
+   "notes": "addendum_c_pdf is authoritative (FV $48 matches standalone)."
+  }
+ ]
+}
